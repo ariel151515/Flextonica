@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "flextonica",
-    "slug": "flextonica",
+    "name": "flextonica-frontend",
+    "slug": "flextonica-frontend",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
