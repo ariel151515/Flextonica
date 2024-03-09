@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Screens
-import DiarioScreen from '../screens/DiarioScreens/DiarioScreen';
+import DiarioScreen from '../screens/DiarioScreens/DiarioScreens';
 import SemanalScreen from '../screens/SemanalScreens/SemanalScreen';
 import MenuScreen from '../screens/MenuScreens/MenuScreens';
 import NutricionScreen from '../screens/NutricionScreens/NutricionScreens';
