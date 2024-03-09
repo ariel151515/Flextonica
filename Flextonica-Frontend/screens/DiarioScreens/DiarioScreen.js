@@ -4,7 +4,9 @@ import React from 'react'
 const DiarioScreen = () => {
   return (
     <View>
-      <Text>DiarioScreen</Text>
+      <Text>
+        DiarioScreen
+      </Text>
     </View>
   )
 }
