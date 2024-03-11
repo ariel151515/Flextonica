@@ -4,7 +4,7 @@ import React from 'react'
 const BoxDiario = () => {
   return (
     <View>
-      <Text>BoxDiario</Text>
+        <Text>BoxDiario</Text>
     </View>
   )
 }

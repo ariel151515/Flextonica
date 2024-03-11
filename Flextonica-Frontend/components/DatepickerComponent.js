@@ -19,7 +19,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    flexGrow: 1, // Esto hará que el contenedor tome el 100% del ancho disponible
+    //flexGrow: 1, // Esto hará que el contenedor tome el 100% del ancho o largo disponible
+    //borderWidth: 1, // Añade un borde de 1px
+    //borderColor: 'black', // Color del borde
+    height: 50, // Añade una altura de 50px
   },
   text: {
     flex: 1,

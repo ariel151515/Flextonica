@@ -1,19 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native'; // Añade la importación de StyleSheet
 import DatepickerComponent from '../../components/DatepickerComponent';
+import Layout from '../../components/Layout';
 
 const DiarioScreen = () => {
   return (
-    <View style={styles.container}>
+    <Layout>
         <DatepickerComponent />
-    </View>
+    </Layout>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop:'9%', // Esto hará que el contenedor tome el 100% del ancho disponible
-  },
-});
 
 export default DiarioScreen;

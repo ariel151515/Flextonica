@@ -4,19 +4,20 @@ import React from 'react'
 const Layout = ({children}) => {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="auto"/>
+      <StatusBar barStyle="dark-content" backgroundColor="#E0E0E0" />
       {children}
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1, // asi toma todo el alto de la app
-      backgroundColor: '#000',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingTop:'7%', // Espacio para la barra de navegación
+    backgroundColor: '#E0E0E0',
+  },
 });
 
 export default Layout
