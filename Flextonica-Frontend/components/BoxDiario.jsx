@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
+import { View, Text, StyleSheet, Platform  } from 'react-native';
 
 export const BoxDiarioItems = ({ texto, kcal, ch, gs, pr, box }) => {
   return (
@@ -69,8 +69,20 @@ const BoxDiario = () => {
 const styles = StyleSheet.create({
   contenedor: {
     backgroundColor: '#FFF',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#ccc',
     width: '100%',
-    color: '#5C5656',
+      ...Platform.select({
+        ios: {
+          shadowColor: 'rgba(0, 0, 0, 0.16)',
+          shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: 0.4,
+          shadowRadius: 2,
+        },
+        android: {
+          elevation: 2,
+        },
+      }),
   },
   barraAzul: {
     backgroundColor: '#0B5CFF',
