@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
         marginBottom:0,
         display:'flex',
         marginLeft:10,
-        color:'#787474'
+        color:'#787474',
+        display: 'none',
     },
     tituloBlanco: {
         gap:0,

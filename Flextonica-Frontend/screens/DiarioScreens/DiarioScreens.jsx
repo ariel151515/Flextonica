@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, ScrollView, Platform  } from 'react-native'; //
 import DatepickerComponent from '../../components/DatepickerComponent';
 import Layout from '../../components/Layout';
 import BoxDiario from '../../components/BoxDiario';
-import ContenedorAlimentos from '../../components/ContenedorAlimentos'
+import ContenedorAlimentos from '../../components/ContenedorAlimentos';
+import ContenedorAgua from '../../components/ContenedorAgua';
 
 const DiarioScreen = () => {
   return (
@@ -14,6 +15,7 @@ const DiarioScreen = () => {
           <ScrollView style={styles.contenedor}>
             <ContenedorAlimentos titulo="Desayuno" calorias="678 Kcal"/>
             <ContenedorAlimentos titulo="Almuerzo" calorias="548 Kcal"/>
+            <ContenedorAgua />
           </ScrollView>
     
     </Layout>
