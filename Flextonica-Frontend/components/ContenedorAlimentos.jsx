@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet,Image } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import campaign from '../assets/campaign.png'
 import React from 'react'
 
 
@@ -22,7 +23,10 @@ export const Item = () => {
 
             <View style={styles.campana}>
                 <Text>
+
                  <MaterialIcons name="campaign" size={24} color="#CDCACA" />
+                 {/* <Image source={require('../assets/campaign.png')} /> */}
+
                 </Text>
             </View>
         </View>
