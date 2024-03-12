@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingTop:'7%', // Espacio para la barra de navegación
-    backgroundColor: '#E0E0E0',
+    backgroundColor: '#E0E0E0'
   },
 });
 
