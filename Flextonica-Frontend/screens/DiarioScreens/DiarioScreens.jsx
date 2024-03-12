@@ -5,6 +5,7 @@ import Layout from '../../components/Layout';
 import BoxDiario from '../../components/BoxDiario';
 import ContenedorAlimentos from '../../components/ContenedorAlimentos';
 import ContenedorAgua from '../../components/ContenedorAgua';
+import ContenedorNota from '../../components/ContenedorNota';
 
 const DiarioScreen = () => {
   return (
@@ -16,6 +17,7 @@ const DiarioScreen = () => {
             <ContenedorAlimentos titulo="Desayuno" calorias="678 Kcal"/>
             <ContenedorAlimentos titulo="Almuerzo" calorias="548 Kcal"/>
             <ContenedorAgua />
+            <ContenedorNota />
           </ScrollView>
     
     </Layout>
