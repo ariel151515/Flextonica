@@ -3,7 +3,6 @@ import GraficoPorMacros from '../../components/GraficoPorMacros'
 import React from 'react'
 
 
-
 export const Linea = ({ texto }) => {
   return (
     <View>
