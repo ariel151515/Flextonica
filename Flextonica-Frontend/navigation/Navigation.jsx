@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // Screens
 import DayScreen from '../screens/DayScreen/DayScreen';
 import WeekScreen from '../screens/WeekScreens/WeekScreen';
-import MenuScreen from '../screens/MenuScreens/MenuScreens';
+import MenuScreen from '../screens/MenuScreen/MenuScreen';
 import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
 
 // Iconos tab
@@ -110,8 +110,7 @@ const TabGroup = () => {
                             Menu
                         </Text>
                     ),
-                    headerShown: false, // Oculta la barra superior en la pantalla "Diario"
-                    headerTitle: false // Oculta el título en la pantalla "Diario"
+                  
                 }}
             />
 
