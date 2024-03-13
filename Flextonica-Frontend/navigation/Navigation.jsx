@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DayScreen from '../screens/DayScreen/DayScreen';
 import WeekScreen from '../screens/WeekScreens/WeekScreen';
 import MenuScreen from '../screens/MenuScreens/MenuScreens';
-import NutricionScreen from '../screens/NutricionScreens/NutricionScreens';
+import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
 
 // Iconos tab
 import { Feather } from '@expo/vector-icons'; // menú
@@ -77,7 +77,7 @@ const TabGroup = () => {
 
             <Tab.Screen 
                 name="Nutrition" 
-                component={NutricionScreen} 
+                component={NutritionTabs} 
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <FontAwesome5 
