@@ -53,8 +53,7 @@ const ContenedorAlimentos = ({titulo,calorias}) => {
        <Item />
        <Item />
        <Item />
-       <Item />
-
+     
        <View style={styles.btn}>
             <Entypo name="plus" size={24} color="#0B5CFF" />
             <Text style={styles.botonLetra}>AÑADIR ENTRADA</Text>
@@ -83,9 +82,9 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         alignItems: 'center',
         padding: 10,
-        borderBottomWidth: 0.5,
-        borderBottomColor: '#ccc',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        borderBottomWidth: 0.6,
+        borderBottomColor: '#EAEBEC',
     },
     icon:{
         marginBottom:0,
@@ -102,7 +101,8 @@ const styles = StyleSheet.create({
     tituloBlancoDos: {
         gap:0,
         display: 'flex',
-        color: '#787474'
+        color: '#787474',
+        fontSize:12,
     },
     itt: {
         display: 'flex',

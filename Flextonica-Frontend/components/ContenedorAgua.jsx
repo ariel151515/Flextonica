@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent:'space-between',
     gap:25,
-    paddingTop:15,
-    paddingBottom:15}
+    paddingTop:10,
+    paddingBottom:10}
 })
 
 export default ContenedorAgua
