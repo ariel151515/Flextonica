@@ -46,7 +46,7 @@ const TabGroup = () => {
                     ),
                     tabBarLabel: ({ focused, color }) => (
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Diario
+                            Day
                         </Text>
                     ),
                     // headerTitleStyle:{color:"#ccc"}
@@ -66,7 +66,7 @@ const TabGroup = () => {
                     ),
                     tabBarLabel: ({ focused, color }) => (
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Semanal
+                            Week
                         </Text>
                     ),
                     headerShown: false, // Oculta la barra superior en la pantalla "Diario"
@@ -86,7 +86,7 @@ const TabGroup = () => {
                     ),
                     tabBarLabel: ({ focused, color }) => (
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Nutrición
+                            Nutrition
                         </Text>
                     )
                 }}
