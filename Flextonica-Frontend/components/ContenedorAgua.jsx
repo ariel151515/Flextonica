@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Image  } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { View, Text, StyleSheet } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 import React from 'react'
 
 const ContenedorAgua = () => {
@@ -8,18 +8,15 @@ const ContenedorAgua = () => {
       <View style={styles.barraTop}>
         <Text style={styles.aguaTop}>Agua</Text>
         <View>
-        <MaterialCommunityIcons name="note-edit-outline" size={20} color="black" />
+        <AntDesign name="edit" size={20} color="#B8A1A1" />
         </View>
       </View>
        
        <View style={styles.containerVasos}>
-         <View><Image source={require('../assets/vaso.png')} /></View>
-         <View><Image source={require('../assets/vaso.png')} /></View>
-         <View><Image source={require('../assets/vaso.png')} /></View>
-         <View><Image source={require('../assets/vaso.png')} /></View>
-         <View><Image source={require('../assets/vaso.png')} /></View>
-         <View><Image source={require('../assets/vaso.png')} /></View>
-         <View><Image source={require('../assets/vaso.png')} /></View>
+         <View style={styles.aguaText}>
+            <Text>Agua</Text>
+            <Text>2 tazas</Text>
+         </View>
        </View>
     </View>
   )
@@ -53,7 +50,16 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     gap:25,
     paddingTop:10,
-    paddingBottom:10}
+    paddingBottom:10
+  },
+  aguaText :{
+    display: 'flex',
+    paddingLeft:10,
+    paddingRight:10,
+    paddingTop:5,
+    paddingBottom:5,
+    width: '100%'
+  }
 })
 
 export default ContenedorAgua

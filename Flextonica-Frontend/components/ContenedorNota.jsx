@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import React from 'react'
 
 const ContenedorNota = () => {
@@ -8,7 +8,7 @@ const ContenedorNota = () => {
       <View style={styles.barraTop}>
         <Text style={styles.aguaTop}>Nota</Text>
         <View>
-        <MaterialCommunityIcons name="note-edit-outline" size={20} color="black" />
+        <AntDesign name="edit" size={20} color="#B8A1A1" />
         </View>
       </View>
        
