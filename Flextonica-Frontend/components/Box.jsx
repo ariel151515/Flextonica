@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
 
-export const BoxDiarioItems = ({ texto, Kcal, ch, gs, pr, box }) => {
+export const BoxItems = ({ texto, Kcal, ch, gs, pr, box }) => {
   const styles = StyleSheet.create({
     item: {
       flexDirection: 'row',
@@ -90,12 +90,12 @@ export const BoxDiarioItems = ({ texto, Kcal, ch, gs, pr, box }) => {
   );
 };
 
-const BoxDiario = () => {
+const Box = ({titulo}) => {
   return (
     <View style={styles.contenedor}>
       <View style={styles.barraAzul}>
-        <BoxDiarioItems
-          texto="DAY"
+        <BoxItems
+          texto={titulo}
           Kcal="KCAL"
           ch="CH"
           gs="GS"
@@ -104,9 +104,9 @@ const BoxDiario = () => {
         />
       </View>
 
-      <BoxDiarioItems texto="Goals" Kcal="1600" ch="140" gs="36" pr="180" />
-      <BoxDiarioItems texto="Totals" Kcal="1168" ch="162" gs="29" pr="67" />
-      <BoxDiarioItems texto="Rest" Kcal="432" ch="22" gs="7" pr="113" />
+      <BoxItems texto="Goals" Kcal="1600" ch="140" gs="36" pr="180" />
+      <BoxItems texto="Totals" Kcal="1168" ch="162" gs="29" pr="67" />
+      <BoxItems texto="Rest" Kcal="432" ch="22" gs="7" pr="113" />
     </View>
   );
 };
@@ -135,4 +135,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BoxDiario;
+export default Box;

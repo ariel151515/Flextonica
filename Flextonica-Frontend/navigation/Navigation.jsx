@@ -3,8 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Screens
-import DiarioScreen from '../screens/DiarioScreens/DiarioScreens';
-import SemanalScreen from '../screens/SemanalScreens/SemanalScreen';
+import DayScreen from '../screens/DayScreen/DayScreen';
+import WeekScreen from '../screens/WeekScreens/WeekScreen';
 import MenuScreen from '../screens/MenuScreens/MenuScreens';
 import NutricionScreen from '../screens/NutricionScreens/NutricionScreens';
 
@@ -34,8 +34,8 @@ const TabGroup = () => {
                 ]
             }}>
             <Tab.Screen 
-                name="Diario" 
-                component={DiarioScreen} 
+                name="Day" 
+                component={DayScreen} 
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <Ionicons 
@@ -54,9 +54,10 @@ const TabGroup = () => {
                     headerTitle: false // Oculta el título en la pantalla "Diario"
                 }}
             />
+
             <Tab.Screen 
-                name="Semanal" 
-                component={SemanalScreen} 
+                name="Week" 
+                component={WeekScreen} 
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <MaterialCommunityIcons 
@@ -68,11 +69,12 @@ const TabGroup = () => {
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
                             Week
                         </Text>
-                    ),
-                    headerShown: false, // Oculta la barra superior en la pantalla "Diario"
-                    headerTitle: false // Oculta el título en la pantalla "Diario"
+                    )
+
                 }}
             />
+
+
             <Tab.Screen 
                 name="Nutricion" 
                 component={NutricionScreen} 
@@ -91,6 +93,8 @@ const TabGroup = () => {
                     )
                 }}
             />
+
+            
             <Tab.Screen 
                 name="MenuScreen" 
                 component={MenuScreen} 
@@ -110,6 +114,7 @@ const TabGroup = () => {
                     headerTitle: false // Oculta el título en la pantalla "Diario"
                 }}
             />
+
         </Tab.Navigator>
     );
 };

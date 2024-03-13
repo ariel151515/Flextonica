@@ -4,7 +4,7 @@ import React from 'react'
 const NutricionScreens = () => {
   return (
     <View>
-      <Text>NutricionScreens</Text>
+      <Text>NutricionScreens dffd</Text>
     </View>
   )
 }

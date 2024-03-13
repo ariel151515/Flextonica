@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, Platform  } from 'react-native'; // Añade la importación de StyleSheet
 import DatepickerComponent from '../../components/DatepickerComponent';
 import Layout from '../../components/Layout';
-import BoxDiario from '../../components/BoxDiario';
+import Box from '../../components/Box';
 import ContenedorAlimentos from '../../components/ContenedorAlimentos';
 import ContenedorAgua from '../../components/ContenedorAgua';
 import ContenedorNota from '../../components/ContenedorNota';
+import { useNavigation } from '@react-navigation/native';
+import ContenedorMacrosSemanal from '../../components/ContenedorMacrosSemanal';
 
-const DiarioScreen = () => {
+const WeekScreen = () => {
+  const navigation = useNavigation(); // Declaración de navigation
+
+  useEffect(() => {
+    console.log("Ejecutando useEffect de WeekScreen");
+    navigation.setOptions({
+        headerShown: false, // Oculta la barra superior
+        headerTitle: false // Oculta el título
+    });
+}, []);
+
+
   return (
     <Layout>
         <DatepickerComponent />
-        <BoxDiario />
+        <Box titulo="WEEK" />
         
           <ScrollView style={styles.contenedor}>
-            <ContenedorAlimentos titulo="Desayuno" calorias="678 Kcal"/>
-            <ContenedorAlimentos titulo="Almuerzo" calorias="548 Kcal"/>
-            <ContenedorAgua />
+            <ContenedorMacrosSemanal />
             <ContenedorNota />
           </ScrollView>
     
@@ -31,4 +42,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default DiarioScreen;
+export default WeekScreen;
