@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView  } from 'react-native';
 import React from 'react'
 
 
@@ -8,6 +8,22 @@ export const Linea = ({ texto }) => {
       {texto === 'Proteinas' && <View style={styles.lineaP}></View>}
       {texto === 'Carbohidratos' && <View style={styles.lineaC}></View>}
       {texto === 'Grasas' && <View style={styles.lineaG}></View>}
+
+      {texto === 'Fibra' && <View style={styles.lineaO}></View>}
+      {texto === 'Azucar' && <View style={styles.lineaO}></View>}
+
+      {texto === 'Grasas saturadas' && <View style={styles.lineaO}></View>}
+      {texto === 'Grasas poliinsaturadas' && <View style={styles.lineaO}></View>}
+      {texto === 'Grasas monoinsaturadas' && <View style={styles.lineaO}></View>}
+      {texto === 'Grasas trans' && <View style={styles.lineaO}></View>}
+      
+      {texto === 'Colesterol' && <View style={styles.lineaO}></View>}
+      {texto === 'Sodio' && <View style={styles.lineaO}></View>}
+      {texto === 'Potasio' && <View style={styles.lineaO}></View>}
+      {texto === 'Vitamina A' && <View style={styles.lineaO}></View>}
+      {texto === 'Vitamina C' && <View style={styles.lineaO}></View>}
+      {texto === 'Calcio' && <View style={styles.lineaO}></View>}
+      {texto === 'Hierro' && <View style={styles.lineaO}></View>}
     </View>
   );
 };
@@ -17,10 +33,10 @@ export const Item = ({texto,total,objetivo,restan}) => {
   return (
       <View style={styles.it}>
           <View style={styles.item}>
-            <Text style={styles.text}>{texto}</Text>
+            <Text style={styles.textA}>{texto}</Text>
             <View style={styles.tres}>
-              <Text style={styles.text}>{total}<Text style={styles.gramos}> g</Text></Text>
-              <Text style={styles.text}>{objetivo}<Text style={styles.gramos}> g</Text></Text>
+              <Text style={styles.text}>{total}<Text style={styles.gramos}></Text></Text>
+              <Text style={styles.text}>{objetivo}<Text style={styles.gramos}></Text></Text>
               <Text style={styles.text}>{restan}<Text style={styles.gramos}> g</Text></Text>
             </View>
           </View>
@@ -36,7 +52,8 @@ export const Item = ({texto,total,objetivo,restan}) => {
 
 const NutrientesScreen = () => {
   return (
-    <View style={styles.contenedor}>
+    <ScrollView style={{ flex: 1 }}>
+        <View style={styles.contenedor}>
       <View style={styles.container}>
         <View><Text>Total</Text></View>
         <View><Text>Objetivo</Text></View>
@@ -46,8 +63,21 @@ const NutrientesScreen = () => {
       <Item texto="Proteinas" total="70" objetivo="50" restan="45" />
       <Item texto="Carbohidratos" total="70" objetivo="50" restan="45" />
       <Item texto="Grasas" total="70" objetivo="50" restan="45" />
-
+      <Item texto="Fibra" total="70" objetivo="50" restan="45" />
+      <Item texto="Azucar" total="70" objetivo="50" restan="45" />
+      <Item texto="Grasas saturadas" total="70" objetivo="50" restan="45" />
+      <Item texto="Grasas poliinsaturadas" total="70" objetivo="50" restan="45" />
+      <Item texto="Grasas monoinsaturadas" total="70" objetivo="50" restan="45" />
+      <Item texto="Grasas trans" total="70" objetivo="50" restan="45" />
+      <Item texto="Colesterol" total="70" objetivo="50" restan="45" />
+      <Item texto="Sodio" total="70" objetivo="50" restan="45" />
+      <Item texto="Potasio" total="70" objetivo="50" restan="45" />
+      <Item texto="Vitamina A" total="70" objetivo="50" restan="45" />
+      <Item texto="Vitamina C" total="70" objetivo="50" restan="45" />
+      <Item texto="Calcio" total="70" objetivo="50" restan="45" />
+      <Item texto="Hierro" total="70" objetivo="50" restan="45" />
    </View>
+    </ScrollView>
   )
 }
 
@@ -92,7 +122,7 @@ const styles = StyleSheet.create({
     marginRight:'2%',
   },
   gramos: {
-    color: '#ABA8A8',
+    color: '#807D7D',
   },
   contenedorGrafico: {
     display: 'flex',
@@ -123,6 +153,13 @@ const styles = StyleSheet.create({
     marginBottom:0.5,
     borderRadius:50
   },
+  lineaO: {
+    width: '25%',
+    height: 5,
+    backgroundColor: '#8C8C8C',
+    marginBottom:0.5,
+    borderRadius:50
+  },
   it:{
     display: 'flex',
     flexDirection: 'column',
@@ -135,6 +172,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     backgroundColor:'#E9E5E5',
     borderRadius:50
+  },
+  text: {
+    color:'#807D7D',
   }
 })
 
