@@ -76,7 +76,7 @@ const TabGroup = () => {
 
 
             <Tab.Screen 
-                name="Nutricion" 
+                name="Nutrition" 
                 component={NutricionScreen} 
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
