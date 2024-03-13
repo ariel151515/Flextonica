@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet,Image } from 'react-native'
+import { View, Text, StyleSheet,Image, TouchableOpacity } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
@@ -37,6 +37,13 @@ export const Item = () => {
 
 
 const ContenedorAlimentos = ({titulo,calorias}) => {
+
+    const handlePress = () => {
+        return{
+
+        }
+    }
+
   return (
     <View style={styles.container}>
 
@@ -55,8 +62,12 @@ const ContenedorAlimentos = ({titulo,calorias}) => {
        <Item />
      
        <View style={styles.btn}>
-            <Entypo name="plus" size={24} color="#0B5CFF" />
-            <Text style={styles.botonLetra}>AÑADIR ENTRADA</Text>
+            <TouchableOpacity onPress={handlePress}>
+                <View style={styles.botonLetra}>
+                     <View><Entypo name="plus" size={24} color="#0B5CFF" /></View>
+                     <View><Text style={styles.textt} >AÑADIR ENTRADA</Text></View>
+                </View>
+            </TouchableOpacity>
        </View>
 
     </View>
@@ -116,15 +127,24 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'left',
-        alignItems: 'center',
         width: '100%',
         height: 60,
         paddingLeft:10,
         backgroundColor:'#fff',
         color:'#0B5CFF',
-        gap:10,
+        gap:20,
+        alignItems: 'center',
     },
     botonLetra: {
+        color:'#0B5CFF',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'left',
+        alignItems: 'center',
+        width: '100%',
+        gap:10
+    },
+    textt: {
         color:'#0B5CFF'
     }
   

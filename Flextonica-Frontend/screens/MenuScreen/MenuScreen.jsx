@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
 import React,{ useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,6 +11,45 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
+
+export const BtnCerrarSesion = () => {
+
+    const styles = StyleSheet.create({
+        button: {
+            width:'92%',
+            backgroundColor: '#FFF',
+            borderWidth: 2,
+            borderColor: '#0B5CFF',
+            paddingVertical: 7,
+            paddingHorizontal: 5,
+            borderRadius: 5,
+            borderRadius:50,
+            marginTop:30,
+            marginBottom:20,
+            marginLeft:'3.5%'
+        },
+        textBtn: {
+          color: '#0B5CFF',
+          fontSize: 16,
+          textAlign: 'center',
+        },
+      });
+
+
+    const handlePress = () => {
+      // Aquí puedes manejar la lógica para cerrar sesión
+    };
+  
+    return (
+      <TouchableOpacity onPress={handlePress}>
+        <View style={styles.button}>
+          <Text style={styles.textBtn}>Cerrar Sesión</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+  
+  
 
 export const BoxMenuUser = () => {
     return (
@@ -71,6 +110,9 @@ const MenuScreen = () => {
           <ItemMenu texto="Ajustes" icono={<Ionicons name="settings" size={24} color="#4D4E4F" />} />
           <ItemMenu texto="Soporte" icono={<FontAwesome name="support" size={24} color="#4D4E4F" />} />
           <ItemMenu texto="Centro de privacidad" icono={<MaterialIcons name="security" size={24} color="#4D4E4F" />} />
+         
+          <BtnCerrarSesion />
+       
         </View>
     </View>
     </ScrollView>
