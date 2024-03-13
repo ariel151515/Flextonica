@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native';
+import GraficoPorMacros from '../../components/GraficoPorMacros'
 import React from 'react'
 
 
@@ -27,6 +28,10 @@ const MacrosScreen = () => {
       <Item texto="Proteinas" total="70" objetivo="50" restan="45" />
       <Item texto="Carbohidratos" total="70" objetivo="50" restan="45" />
       <Item texto="Grasas" total="70" objetivo="50" restan="45" />
+
+      <View style={styles.contenedorGrafico}>
+        <GraficoPorMacros />
+      </View>
 
     </View>
   )
@@ -73,6 +78,14 @@ const styles = StyleSheet.create({
     },
     gramos: {
       color: '#ABA8A8',
+    },
+    contenedorGrafico: {
+      display: 'flex',
+      alignItems: 'center',
+      width: '100%',
+      backgroundColor: '#FFFF',
+      marginBottom:0.5,
+      marginTop:10
     }
 })
 
