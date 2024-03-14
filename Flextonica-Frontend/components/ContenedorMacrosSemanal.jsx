@@ -1,89 +1,119 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 
+export const Item = ({ dia }) => {
+  const [value1, setValue1] = useState("");
+  const [value2, setValue2] = useState("244");
+  const [value3, setValue3] = useState("34");
+  const [value4, setValue4] = useState("");
 
-export const Item = ({dia}) => {
-    return (
-        <View style={styles.container}>
-            <View><Text style={styles.textDia}>{dia}</Text></View>
-            <View><Text style={styles.text}>2345</Text></View>
-            <View><Text style={styles.text}>123</Text></View>
-            <View><Text style={styles.text}>345</Text></View>
-            <View><Text style={styles.text}>56</Text></View>
+  const handleInputChange = (text, setValue) => {
+    if (text === "0") {
+      setValue("");
+    } else {
+      setValue(text);
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.itemContainer}>
+        <View style={styles.textDia}>
+          <Text>{dia}</Text>
         </View>
-    )
-}
 
-export const ItemUltimo = ({dia}) => {
-    return (
-        <View style={styles.containerBoxUltimo}>
-            <View><Text style={styles.textDia}>{dia}</Text></View>
-            <View><Text style={styles.text}>2345</Text></View>
-            <View><Text style={styles.text}>123</Text></View>
-            <View><Text style={styles.text}>345</Text></View>
-            <View><Text style={styles.text}>56</Text></View>
+        <View style={styles.contenedorTextBox}>
+          <TextInput
+            style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
+            value={value1}
+            onChangeText={text => handleInputChange(text, setValue1)}
+            editable={true} // Primer input editable
+            placeholder="0000"
+            keyboardType="numeric" // Solo números
+          />
+          <TextInput
+            style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
+            value={value2}
+            editable={false} // Deshabilitar edición
+            placeholder="0000"
+          />
+          <TextInput
+            style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
+            value={value3}
+            editable={false} // Deshabilitar edición
+            placeholder="0000"
+          />
+          <TextInput
+            style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
+            value={value4}
+            editable={false} // Deshabilitar edición
+            placeholder="0000"
+          />
         </View>
-    )
-}
-
+      </View>
+    </View>
+  );
+};
 
 const ContenedorMacrosSemanal = () => {
   return (
     <View style={styles.containerBox}>
-       <Item dia="Lun 13"/>
-       <View style={{ backgroundColor: '#D9DBDD', height:0.7 }}></View>
-       <Item dia="Mar 13"/>
-       <View style={{ backgroundColor: '#D9DBDD', height:0.7 }}></View>
-       <Item dia="Mie 13"/>
-       <View style={{ backgroundColor: '#D9DBDD', height:0.7 }}></View>
-       <Item dia="Jue 13"/>
-       <View style={{ backgroundColor: '#D9DBDD', height:0.7 }}></View>
-       <Item dia="Vie 13"/>
-       <View style={{ backgroundColor: '#D9DBDD', height:0.7 }}></View>
-       <Item dia="Sab 13"/>
-       <View style={{ backgroundColor: '#D9DBDD', height:0.7 }}></View>
-       <ItemUltimo dia="Do  13"/>
+      <Item dia="Lun 13" />
+      <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
+      <Item dia="Lun 13" />
+      <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
+      <Item dia="Lun 13" />
+      <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
+      <Item dia="Lun 13" />
+      <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
+      <Item dia="Lun 13" />
+      <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
+      <Item dia="Lun 13" />
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        justifyContent:'space-between',
-        paddingTop: 15,
-        paddingBottom: 15,
-        //borderBottomWidth: 0.5,
-        //borderBottompColor: '#ccc',
-        paddingLeft: 10,
-        paddingRight: 17,
-     },
-     containerBoxUltimo: {
-        flex: 1,
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        justifyContent:'space-between',
-        paddingTop:15,
-        paddingBottom:15,
-        paddingLeft: 10,
-        paddingRight: 14,
-     },
-     containerBox: {
-        flex: 1,
-        backgroundColor: '#fff',
-        marginTop:10,
-        marginBottom:10,
-     },
-     text:{
-        marginLeft:0,
-        color: '#0C4FD4'
-     },
-     textDia:{
-        marginLeft:0,
-        color: '#000'
-     }
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingBottom: 5,
+    paddingTop: 5,
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  containerBox: {
+    backgroundColor: '#fff',
+    marginTop: 10,
+    marginBottom: 10,
+    paddingLeft: 12,
+    paddingRight: 12,
+  },
+  itemContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center', // Alineación vertical
+  },
+  textDia: {
+    marginLeft: 0,
+    color: '#000',
+  },
+  contenedorTextBox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center', // Alineación vertical
+    width: '77%',
+  },
+  textBox: {
+    marginLeft: 0,
+    color: '#000',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    marginHorizontal: 5,
+    borderRadius: 5,
+    borderColor: '#fff',
+    borderWidth: 1,
+  },
 });
 
-export default ContenedorMacrosSemanal
+export default ContenedorMacrosSemanal;

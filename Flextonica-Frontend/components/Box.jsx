@@ -104,7 +104,7 @@ const Box = ({titulo}) => {
         />
       </View>
 
-      <BoxItems texto="Goals" Kcal="1600" ch="140" gs="36" pr="180" />
+      <BoxItems texto="Goals" Kcal="1600" ch="1400" gs="3600" pr="180" />
       <BoxItems texto="Totals" Kcal="1168" ch="162" gs="29" pr="67" />
       <BoxItems texto="Rest" Kcal="432" ch="22" gs="7" pr="113" />
     </View>
