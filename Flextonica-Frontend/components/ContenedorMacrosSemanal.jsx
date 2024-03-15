@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
 export const Item = ({ dia }) => {
-  const [value1, setValue1] = useState("");
-  const [value2, setValue2] = useState("244");
-  const [value3, setValue3] = useState("34");
+  const [value1, setValue1] = useState("244");
+  const [value2, setValue2] = useState("34");
+  const [value3, setValue3] = useState("120");
   const [value4, setValue4] = useState("120");
 
   const handleInputChange = (text, setValue) => {
@@ -49,6 +49,7 @@ export const Item = ({ dia }) => {
             editable={false} // Deshabilitar edición
             placeholder="0000"
           />
+   
         </View>
       </View>
     </View>
@@ -62,15 +63,17 @@ const ContenedorMacrosSemanal = () => {
       <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
       <Item dia="Lun 13" />
       <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
-      <Item dia="Lun 13" />
+      <Item dia="Mar 13" />
       <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
-      <Item dia="Lun 13" />
+      <Item dia="Mie 13" />
       <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
-      <Item dia="Lun 13" />
+      <Item dia="Jue 13" />
       <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
-      <Item dia="Lun 13" />
+      <Item dia="Vie 13" />
       <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
-      <Item dia="Lun 13" />
+      <Item dia="Sab 13" />
+      <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
+      <Item dia="Dom 13" />
     </View>
   );
 };
@@ -79,8 +82,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingBottom: 5,
-    paddingTop: 5,
+    paddingBottom:2,
+    paddingTop: 2,
     marginTop: 10,
     marginBottom: 10,
   },
