@@ -24,7 +24,7 @@ export const Item = ({ dia }) => {
 
         <View style={styles.contenedorTextBox}>
           <TextInput
-            style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
+            style={[styles.textBox, { width: 60, textAlign: 'center', color:'#0B5CFF' }]} // Establecer el ancho
             value={value1}
             onChangeText={text => handleInputChange(text, setValue1)}
             editable={true} // Primer input editable
@@ -60,7 +60,6 @@ export const Item = ({ dia }) => {
 const ContenedorMacrosSemanal = () => {
   return (
     <View style={styles.containerBox}>
-      <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
       <Item dia="Lun 13" />
       <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
       <Item dia="Mar 13" />
@@ -90,10 +89,14 @@ const styles = StyleSheet.create({
   containerBox: {
     flex: 1,
     backgroundColor: '#fff',
+
     marginTop: 10,
     marginBottom: 10,
+
     paddingLeft: 12,
     paddingRight: 12,
+
+    paddingTop:0
   },
   itemContainer: {
     flexDirection: 'row',
