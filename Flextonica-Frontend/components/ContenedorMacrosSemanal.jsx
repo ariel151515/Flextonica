@@ -5,7 +5,7 @@ export const Item = ({ dia }) => {
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("244");
   const [value3, setValue3] = useState("34");
-  const [value4, setValue4] = useState("");
+  const [value4, setValue4] = useState("120");
 
   const handleInputChange = (text, setValue) => {
     if (text === "0") {
@@ -55,9 +55,11 @@ export const Item = ({ dia }) => {
   );
 };
 
+
 const ContenedorMacrosSemanal = () => {
   return (
     <View style={styles.containerBox}>
+      <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
       <Item dia="Lun 13" />
       <View style={{ backgroundColor: '#D9DBDD', height: 0.7 }}></View>
       <Item dia="Lun 13" />
@@ -83,6 +85,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   containerBox: {
+    flex: 1,
     backgroundColor: '#fff',
     marginTop: 10,
     marginBottom: 10,
