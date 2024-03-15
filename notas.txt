@@ -1,1 +1,27 @@
 rnfe
+
+
+Bottom Sheet React Native | Expo Tutorial en Español
+https://www.youtube.com/watch?v=_lzRvCf4FKE
+
+
+Graficos de barra react antive (librerias)
+https://awereactnative.com/bar-chart/
+https://awereactnative.com/dynamic-e-charts-wrapper/
+https://awereactnative.com/react-native-charting-libraries/
+https://awereactnative.com/react-native-chart-kit/
+https://awereactnative.com/third-sample-article-for-gatsbyjs-theme/
+https://awereactnative.com/line-chart/
+https://www.thewidlarzgroup.com/blog/make-your-custom-charts-with-react-native-svg-charts-and-typescript-step-by-step-tutorial
+
+
+Tareas:
+- Mejorar tablas con base de datos de alimentos reales
+- Crear una base de datos en js para simular
+- Screen Perfil
+- Screen Objetivos
+- Screen recordatorios
+- Screen seguimiento - Screen agregar prpgreso
+- Screen crear o agregar comidas
+- Screen añadir alimento
+- Screen crear alimento
