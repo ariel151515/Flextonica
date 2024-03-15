@@ -50,7 +50,6 @@ export const BtnCerrarSesion = () => {
   };
   
   
-
 export const BoxMenuUser = () => {
     return (
         <View style={styles.container}>
@@ -69,6 +68,7 @@ export const BoxMenuUser = () => {
 
 
 export const ItemMenu = ({texto,icono}) => {
+
     return (
         <View style={styles.contenedorItemMenu}>
             <View>{icono}</View>

@@ -7,6 +7,8 @@ import DayScreen from '../screens/DayScreen/DayScreen';
 import WeekScreen from '../screens/WeekScreens/WeekScreen';
 import MenuScreen from '../screens/MenuScreen/MenuScreen';
 import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
+import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
+import ObjetivosScreen from '../screens/ObjetivosScreen/ObjetivosScreen';
 
 
 // Iconos tab
@@ -114,6 +116,47 @@ const TabGroup = () => {
                   
                 }}
             />
+
+
+           <Tab.Screen 
+                name="Perfil" 
+                component={PerfilUserScreen} 
+                options={{
+                    tabBarIcon: ({ focused, color, size }) => (
+                        <Feather 
+                            name="menu" 
+                            size={size} 
+                            color={color}/>
+                    ),
+                    tabBarLabel: ({ focused, color }) => (
+                        <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
+                            Perfil
+                        </Text>
+                    ),
+                  
+                }}
+              />
+
+
+
+           <Tab.Screen 
+                name="Objetivos" 
+                component={ObjetivosScreen} 
+                options={{
+                    tabBarIcon: ({ focused, color, size }) => (
+                        <Feather 
+                            name="menu" 
+                            size={size} 
+                            color={color}/>
+                    ),
+                    tabBarLabel: ({ focused, color }) => (
+                        <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
+                            Objetivos
+                        </Text>
+                    ),
+                  
+                }}
+              />
 
         </Tab.Navigator>
     );
