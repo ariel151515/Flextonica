@@ -2,19 +2,19 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 
-export const Item = ({clave, valor}) => {
-    return (
-        <View style={styles.item}>
-            <View><Text>{clave}</Text></View>
-            <View><Text style={styles.valor}>{valor}</Text></View>
-        </View>
-    );
-}
+// Screen
+//import MisAlimentosTabs from './MisAlimentosTabs/MisAlimentosTabs';
+import FlextonicaScreen from './MisAlimentosScreen/FlextonicaScreen';
+import CaloriekingScreen from './MisAlimentosScreen/CaloriekingScreen';
+import MAlimentosScreen from './MisAlimentosScreen/MAlimentosScreen';
 
 
-const MisAlimentosScreen = () => {
+const Tab = createMaterialTopTabNavigator();
+
+const Alimentos = () => {
 
     const navigation = useNavigation();
 
@@ -27,7 +27,7 @@ const MisAlimentosScreen = () => {
         headerLeft: () => (
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.navigate('MenuScreen')} // Aquí modificamos la función onPress para navegar a MenuScreen
+            onPress={() => navigation.goBack()} // Utilizamos navigation.goBack() para regresar a la pantalla anterior
           >
             <MaterialIcons name="arrow-back" size={24} color="#fff" />
           </TouchableOpacity>
@@ -36,43 +36,45 @@ const MisAlimentosScreen = () => {
     }, [navigation]);
 
   return (
-    <View style={styles.container}>
-           <View style={styles.contenedorItem}>
-                <Item clave="Nombre" valor="Ariel Gentile" />
-                <Item clave="Email" valor="vipndcfitness@gmail.com"/>
-                <Item clave="Sucripcion" valor="Estandar"/>
-           </View>
+    <View style={{ flex: 1 }}>
+      <Tab.Navigator
+        tabBarOptions={{
+          style: {
+            backgroundColor: '#fff', // Color de fondo de las pestañas
+            borderTopWidth: 1, // Grosor del borde superior
+            borderTopColor: '#D9D9D9', // Color del borde superior
+          },
+          labelStyle: {
+            fontWeight: 'bold', // Fuente en negrita
+          },
+          activeTintColor: '#000', // Color del texto de la pestaña activa
+          inactiveTintColor: '#ccc', // Color del texto de la pestaña inactiva
+          indicatorStyle: {
+            backgroundColor: '#6200EE', // Color del indicador de pestaña activa
+          },
+        }}
+      >  
+        
+         {/*Son todos los alimentos que los usuarios an usado alguna vez (Los alimentos confirmados 
+            son los que probienen de la base de datos - tienen un tilde)*/}
+         <Tab.Screen name="Calorieking" component={CaloriekingScreen} />
+
+         {/*Son los alimentos que probienen de la base de datos*/}
+         <Tab.Screen name="Flextonica" component={FlextonicaScreen} />
+
+         {/*Son mis alimentos creados y usados */}
+         <Tab.Screen name="Mis alimentos" component={MAlimentosScreen} />
+
+         
+      </Tab.Navigator>
     </View>
   )
 }
 
-// Definición de estilos
 const styles = StyleSheet.create({
-  backButton: {
-    marginLeft: 15,
-  },
-  item:{
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent:'space-between',
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 10,
-    paddingRight: 10,
-    backgroundColor: '#fff',
-    borderBottomWidth: 0.6,
-    borderBottomColor: '#EAEBEC',
-  },
-  valor:{
-    color: '#0B5CFF',
-  },
-  contenedorItem:{
-    flex: 1,
-  },
-  container: { // Estilo del contenedor principal
-    flex: 1,
-    backgroundColor: '#Ffff', // Color de fondo opcional
-  }
-});
-
-export default MisAlimentosScreen;
+    backButton: {
+      marginLeft: 15,
+    },
+  });
+  
+export default Alimentos;
