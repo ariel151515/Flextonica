@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Screens
 import DayScreen from '../screens/DayScreen/DayScreen';
-import WeekScreen from '../screens/WeekScreens/WeekScreen';
+import WeekScreen from '../screens/WeekScreen/WeekScreen';
 import MenuScreen from '../screens/MenuScreen/MenuScreen';
 import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
 //import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
