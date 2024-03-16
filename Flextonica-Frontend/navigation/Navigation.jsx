@@ -11,7 +11,7 @@ import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
 //import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
 //import ObjetivosScreen from '../screens/ObjetivosScreen/ObjetivosScreen';
 //import RecordatoriosScreen from '../screens/RecordatoriosScreen/RecordatoriosScreen';
-import ProgresoScreen from '../screens/ProgresoScreen/ProgresoScreen';
+import MisAlimentosScreen from '../screens/MisAlimentosScreen/MisAlimentosScreen';
 
 // Iconos tab
 import { Feather } from '@expo/vector-icons'; // menú
@@ -119,8 +119,8 @@ const TabGroup = () => {
 
 
          <Tab.Screen 
-                name="Progreso" 
-                component={ProgresoScreen} 
+                name="Mis alimentos" 
+                component={MisAlimentosScreen} 
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <Feather 
@@ -130,7 +130,7 @@ const TabGroup = () => {
                     ),
                     tabBarLabel: ({ focused, color }) => (
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Seguimiento
+                            Mis Alimentos
                         </Text>
                     ),
                   
