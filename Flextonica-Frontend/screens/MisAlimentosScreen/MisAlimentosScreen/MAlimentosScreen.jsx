@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 
+import SearchAlimentos from '../../../components/SearchAlimentos'
 
 
 const MisalimentosTabs = () => {
@@ -27,8 +28,8 @@ const MisalimentosTabs = () => {
     }, [navigation]);
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text>Mis alimentos</Text>
+    <View style={{flex:1, backgroundColor:'#fff', padding:10}}>
+      <SearchAlimentos />
     </View>
   )
 }
