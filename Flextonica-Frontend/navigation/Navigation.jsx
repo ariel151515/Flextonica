@@ -17,6 +17,7 @@ import { Feather } from '@expo/vector-icons'; // menú
 import { Ionicons } from '@expo/vector-icons'; // día
 import { MaterialCommunityIcons } from '@expo/vector-icons'; // semana
 import { FontAwesome5 } from '@expo/vector-icons'; // nutrición
+import ObjetivosScreen from '../screens/ObjetivosScreen/ObjetivosScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -116,9 +117,9 @@ const TabGroup = () => {
             />
 
 
-           <Tab.Screen 
-                name="Recordatorios" 
-                component={RecordatoriosScreen} 
+         <Tab.Screen 
+                name="Objetivos" 
+                component={ObjetivosScreen} 
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <Feather 
@@ -128,7 +129,7 @@ const TabGroup = () => {
                     ),
                     tabBarLabel: ({ focused, color }) => (
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Recordatorio
+                            Objetivos
                         </Text>
                     ),
                   
