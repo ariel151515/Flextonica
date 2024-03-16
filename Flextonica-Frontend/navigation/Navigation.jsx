@@ -10,14 +10,15 @@ import MenuScreen from '../screens/MenuScreen/MenuScreen';
 import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
 //import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
 //import ObjetivosScreen from '../screens/ObjetivosScreen/ObjetivosScreen';
-import RecordatoriosScreen from '../screens/RecordatoriosScreen/RecordatoriosScreen';
+//import RecordatoriosScreen from '../screens/RecordatoriosScreen/RecordatoriosScreen';
+import ProgresoScreen from '../screens/ProgresoScreen/ProgresoScreen';
 
 // Iconos tab
 import { Feather } from '@expo/vector-icons'; // menú
 import { Ionicons } from '@expo/vector-icons'; // día
 import { MaterialCommunityIcons } from '@expo/vector-icons'; // semana
 import { FontAwesome5 } from '@expo/vector-icons'; // nutrición
-import ObjetivosScreen from '../screens/ObjetivosScreen/ObjetivosScreen';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -118,8 +119,8 @@ const TabGroup = () => {
 
 
          <Tab.Screen 
-                name="Objetivos" 
-                component={ObjetivosScreen} 
+                name="Progreso" 
+                component={ProgresoScreen} 
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <Feather 
@@ -129,7 +130,7 @@ const TabGroup = () => {
                     ),
                     tabBarLabel: ({ focused, color }) => (
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Objetivos
+                            Seguimiento
                         </Text>
                     ),
                   
