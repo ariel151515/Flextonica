@@ -24,7 +24,7 @@ export const Item = ({ dia }) => {
 
         <View style={styles.contenedorTextBox}>
           <TextInput
-            style={[styles.textBox, { width: 60, textAlign: 'center', color:'#0B5CFF' }]} // Establecer el ancho
+            style={[styles.textBox, { width: 60, textAlign: 'center', color:'#6200EE' }]} // Establecer el ancho
             value={value1}
             onChangeText={text => handleInputChange(text, setValue1)}
             editable={true} // Primer input editable

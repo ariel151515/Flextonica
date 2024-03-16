@@ -197,7 +197,7 @@ export const Box = ({titulo}) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: '#0B5CFF',
+    backgroundColor: '#6200EE',
     //paddingLeft: 14,
     //paddingRight:15,
 
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   textDia: {
     display:'flex',
     alignItems: 'center', // Alineación vertical
-    backgroundColor:'#0C4FD4',
+    backgroundColor:'#4C00D5',
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 14,

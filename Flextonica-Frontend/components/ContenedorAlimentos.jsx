@@ -64,7 +64,7 @@ const ContenedorAlimentos = ({titulo,calorias}) => {
        <View style={styles.btn}>
             <TouchableOpacity onPress={handlePress}>
                 <View style={styles.botonLetra}>
-                     <View><Entypo name="plus" size={24} color="#0B5CFF" /></View>
+                     <View><Entypo name="plus" size={24} color="#6200EE" /></View>
                      <View><Text style={styles.textt} >AÑADIR ENTRADA</Text></View>
                 </View>
             </TouchableOpacity>
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
         gap:10
     },
     textt: {
-        color:'#0B5CFF'
+        color:'#6200EE'
     }
   
 });

@@ -1,3 +1,4 @@
+import React from 'react';
 import { View, Text } from 'react-native'; // Asegúrate de importar Text de react-native
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -7,9 +8,9 @@ import DayScreen from '../screens/DayScreen/DayScreen';
 import WeekScreen from '../screens/WeekScreens/WeekScreen';
 import MenuScreen from '../screens/MenuScreen/MenuScreen';
 import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
-import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
-import ObjetivosScreen from '../screens/ObjetivosScreen/ObjetivosScreen';
-
+//import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
+//import ObjetivosScreen from '../screens/ObjetivosScreen/ObjetivosScreen';
+import RecordatoriosScreen from '../screens/RecordatoriosScreen/RecordatoriosScreen';
 
 // Iconos tab
 import { Feather } from '@expo/vector-icons'; // menú
@@ -17,16 +18,13 @@ import { Ionicons } from '@expo/vector-icons'; // día
 import { MaterialCommunityIcons } from '@expo/vector-icons'; // semana
 import { FontAwesome5 } from '@expo/vector-icons'; // nutrición
 
-
-import React from 'react';
-
 const Tab = createBottomTabNavigator();
 
 const TabGroup = () => {
     return (
         <Tab.Navigator  
             screenOptions={{
-                tabBarActiveTintColor: '#0B5CFF',
+                tabBarActiveTintColor: '#6200EE',
                 tabBarInactiveTintColor: '#A4A0A0',
                 tabBarStyle: [{ 
                         display: 'flex', 
@@ -119,8 +117,8 @@ const TabGroup = () => {
 
 
            <Tab.Screen 
-                name="Perfil" 
-                component={PerfilUserScreen} 
+                name="Recordatorios" 
+                component={RecordatoriosScreen} 
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
                         <Feather 
@@ -130,33 +128,13 @@ const TabGroup = () => {
                     ),
                     tabBarLabel: ({ focused, color }) => (
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Perfil
+                            Recordatorio
                         </Text>
                     ),
                   
                 }}
               />
 
-
-
-           <Tab.Screen 
-                name="Objetivos" 
-                component={ObjetivosScreen} 
-                options={{
-                    tabBarIcon: ({ focused, color, size }) => (
-                        <Feather 
-                            name="menu" 
-                            size={size} 
-                            color={color}/>
-                    ),
-                    tabBarLabel: ({ focused, color }) => (
-                        <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Objetivos
-                        </Text>
-                    ),
-                  
-                }}
-              />
 
         </Tab.Navigator>
     );

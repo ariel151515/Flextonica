@@ -16,7 +16,7 @@ const NutritionTabs = () => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#0B5CFF',
+        backgroundColor: '#6200EE',
       },
       headerTintColor: '#fff',
       headerLeft: () => (
@@ -46,7 +46,7 @@ const NutritionTabs = () => {
           activeTintColor: '#000', // Color del texto de la pestaña activa
           inactiveTintColor: '#ccc', // Color del texto de la pestaña inactiva
           indicatorStyle: {
-            backgroundColor: '#0B5CFF', // Color del indicador de pestaña activa
+            backgroundColor: '#6200EE', // Color del indicador de pestaña activa
           },
         }}
       >
