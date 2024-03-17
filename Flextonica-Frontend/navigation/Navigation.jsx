@@ -35,7 +35,8 @@ const TabGroup = () => {
                      },
                     null
                 ]
-            }}>
+            }}
+            >
             <Tab.Screen 
                 name="Day" 
                 component={DayScreen} 
@@ -121,13 +122,16 @@ const TabGroup = () => {
          <Tab.Screen 
                 name="Mis alimentos" 
                 component={MisAlimentosScreen} 
+
                 options={{
                     tabBarIcon: ({ focused, color, size }) => (
-                        <Feather 
-                            name="menu" 
-                            size={size} 
-                            color={color}/>
+                      <Feather 
+                        name="menu" 
+                        size={size} 
+                        color={color}
+                      />
                     ),
+                    
                     tabBarLabel: ({ focused, color }) => (
                         <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
                             Mis Alimentos
