@@ -8,7 +8,9 @@ import WeekScreen from '../screens/WeekScreen/WeekScreen';
 import MenuScreen from '../screens/MenuScreen/MenuScreen';
 import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
 import AddAlimento from '../screens/AddAlimento/AddAlimento';
+import AddComidas from '../screens/AddComidas/AddComidas';
 import CrearAlimento from '../screens/CrearAlimento/CrearAlimento';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -122,6 +124,27 @@ const TabGroup = () => {
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
                             Crear Alimento
+                            </Text>
+                        </View>
+                    )
+                })}
+            />
+
+        <Tab.Screen 
+                name="Add comidas" 
+                component={AddComidas} 
+                options={({ navigation }) => ({
+                    tabBarIcon: ({ focused, color, size }) => (
+                        <Feather 
+                            name="menu" 
+                            size={size} 
+                            color={color}
+                        />
+                    ),
+                    tabBarLabel: ({ focused, color }) => (
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
+                            Add comidas
                             </Text>
                         </View>
                     )

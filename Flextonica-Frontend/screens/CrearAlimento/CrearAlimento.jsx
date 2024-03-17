@@ -137,7 +137,7 @@ export const Item = ({ titulo, cantidad, p, c, g, calorias}) => {
                paddingRight:10
                }}>
             <View>
-                <Text>¿Es un alimento procesado?:</Text>
+                <Text>¿Es un alimento procesado?</Text>
             </View>
             <View>
                 <Text style={{color:'#0B5CFF'}}>No</Text>
