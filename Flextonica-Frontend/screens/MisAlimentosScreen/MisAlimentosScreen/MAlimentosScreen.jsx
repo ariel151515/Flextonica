@@ -4,7 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import SearchAlimentos from '../../../components/SearchAlimentos'
-
+import ItemAlimentoContenedor from '../../../components/ItemAlimentoContenedor';
+import SelectComidas from '../../../components/SelectComidas';
 
 const MisalimentosTabs = () => {
 
@@ -30,6 +31,8 @@ const MisalimentosTabs = () => {
   return (
     <View style={{flex:1, backgroundColor:'#fff', padding:10}}>
       <SearchAlimentos />
+      <SelectComidas />
+      <ItemAlimentoContenedor />
     </View>
   )
 }

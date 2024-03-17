@@ -3,12 +3,14 @@ import React from 'react'
 
 import SearchAlimentos from '../../../components/SearchAlimentos'
 import SelectComidas from '../../../components/SelectComidas'
+import ItemAlimentoContenedor from '../../../components/ItemAlimentoContenedor'
 
 const CaloriekingTabs = () => {
   return (
     <View style={{flex:1, backgroundColor:'#fff', padding:10}}>
        <SearchAlimentos />
        <SelectComidas />
+      <ItemAlimentoContenedor />
     </View>
   )
 }
