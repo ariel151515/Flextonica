@@ -10,7 +10,8 @@ import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
 import AddAlimento from '../screens/AddAlimento/AddAlimento';
 import AddComidas from '../screens/AddComidas/AddComidas';
 import CrearAlimento from '../screens/CrearAlimento/CrearAlimento';
-
+import AjustesScreen from '../screens/AjustesScreen/AjustesScreen';
+import PrivacidadScreen from '../screens/PrivacidadScreen/PrivacidadScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -131,8 +132,8 @@ const TabGroup = () => {
             />
 
         <Tab.Screen 
-                name="Add comidas" 
-                component={AddComidas} 
+                name="Centro de privacidad" 
+                component={PrivacidadScreen} 
                 options={({ navigation }) => ({
                     tabBarIcon: ({ focused, color, size }) => (
                         <Feather 
@@ -144,7 +145,7 @@ const TabGroup = () => {
                     tabBarLabel: ({ focused, color }) => (
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Add comidas
+                             Privacidad 
                             </Text>
                         </View>
                     )
