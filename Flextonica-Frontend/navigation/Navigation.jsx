@@ -13,7 +13,8 @@ import CrearAlimento from '../screens/CrearAlimento/CrearAlimento';
 import AjustesScreen from '../screens/AjustesScreen/AjustesScreen';
 import PrivacidadScreen from '../screens/PrivacidadScreen/PrivacidadScreen';
 import SoporteScreen from '../screens/SoporteScreen/SoporteScreen';
-
+import MisAlimentosScreen from '../screens/MisAlimentosScreen/MisAlimentosScreen';
+import NotaScreen from '../screens/NotasScreen/NotaScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -134,8 +135,8 @@ const TabGroup = () => {
             />
 
         <Tab.Screen 
-                name="Soporte" 
-                component={SoporteScreen} 
+                name="Nota" 
+                component={NotaScreen} 
                 options={({ navigation }) => ({
                     tabBarIcon: ({ focused, color, size }) => (
                         <Feather 
@@ -147,7 +148,7 @@ const TabGroup = () => {
                     tabBarLabel: ({ focused, color }) => (
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                              Soporte
+                              Nota
                             </Text>
                         </View>
                     )

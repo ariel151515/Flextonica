@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import campaign from '../assets/campaign.png'
 import React from 'react'
-
+import Color from '../components/Color.js';
 
 export const Item = () => {
     return (
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
       marginTop: 10,
     },
     BarraTop: {
-        backgroundColor: '#F2F3F3',
+        backgroundColor:Color.BarraTop,
         display: 'flex',
         flexDirection: 'row',
         justifyContent:'space-between',
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: '#fff',
         borderBottomWidth: 0.6,
-        borderBottomColor: '#EAEBEC',
+        borderBottomColor:Color.gris_linea,
     },
     icon:{
         marginBottom:0,

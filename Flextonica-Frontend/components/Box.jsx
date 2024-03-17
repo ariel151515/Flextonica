@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, Platform, TextInput } from 'react-native';
-
+import Color from '../components/Color.js';
 
 export const Box = ({titulo}) => {
 
@@ -147,8 +147,6 @@ export const Box = ({titulo}) => {
     </View>
 
 
-
-
     <View style={styles.containerC}>
           <View style={styles.itemContainer}>
 
@@ -197,7 +195,7 @@ export const Box = ({titulo}) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: '#6200EE',
+    backgroundColor: Color.azul_base,
     //paddingLeft: 14,
     //paddingRight:15,
 
@@ -237,7 +235,7 @@ const styles = StyleSheet.create({
   textDia: {
     display:'flex',
     alignItems: 'center', // Alineación vertical
-    backgroundColor:'#4C00D5',
+    backgroundColor:Color.azul_box_d_w,
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 14,
