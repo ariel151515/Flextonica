@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   icono: {
     padding: 2,
     borderRadius: 50,
-    backgroundColor: '#D9D9D9',
+    backgroundColor: '#EBE8E8',
   }
 });
 

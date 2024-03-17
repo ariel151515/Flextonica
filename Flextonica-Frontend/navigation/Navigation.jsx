@@ -1,24 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native'; // Asegúrate de importar Text de react-native
+import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-// Screens
+import { Feather, Ionicons, MaterialCommunityIcons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import DayScreen from '../screens/DayScreen/DayScreen';
 import WeekScreen from '../screens/WeekScreen/WeekScreen';
 import MenuScreen from '../screens/MenuScreen/MenuScreen';
 import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
-//import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
-//import ObjetivosScreen from '../screens/ObjetivosScreen/ObjetivosScreen';
-//import RecordatoriosScreen from '../screens/RecordatoriosScreen/RecordatoriosScreen';
-import MisAlimentosScreen from '../screens/MisAlimentosScreen/MisAlimentosScreen';
-
-// Iconos tab
-import { Feather } from '@expo/vector-icons'; // menú
-import { Ionicons } from '@expo/vector-icons'; // día
-import { MaterialCommunityIcons } from '@expo/vector-icons'; // semana
-import { FontAwesome5 } from '@expo/vector-icons'; // nutrición
-
+import AddAlimento from '../screens/AddAlimento/AddAlimento';
+import CrearAlimento from '../screens/CrearAlimento/CrearAlimento';
 
 const Tab = createBottomTabNavigator();
 
@@ -53,9 +43,8 @@ const TabGroup = () => {
                             Day
                         </Text>
                     ),
-                    // headerTitleStyle:{color:"#ccc"}
-                    headerShown: false, // Oculta la barra superior en la pantalla "Diario"
-                    headerTitle: false // Oculta el título en la pantalla "Diario"
+                    headerShown: false,
+                    headerTitle: false
                 }}
             />
 
@@ -114,32 +103,30 @@ const TabGroup = () => {
                             Menu
                         </Text>
                     ),
-                  
                 }}
             />
 
 
-         <Tab.Screen 
-                name="Mis alimentos" 
-                component={MisAlimentosScreen} 
-
-                options={{
+            <Tab.Screen 
+                name="Crear alimento" 
+                component={CrearAlimento} 
+                options={({ navigation }) => ({
                     tabBarIcon: ({ focused, color, size }) => (
-                      <Feather 
-                        name="menu" 
-                        size={size} 
-                        color={color}
-                      />
+                        <Feather 
+                            name="menu" 
+                            size={size} 
+                            color={color}
+                        />
                     ),
-                    
                     tabBarLabel: ({ focused, color }) => (
-                        <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                            Mis Alimentos
-                        </Text>
-                    ),
-                  
-                }}
-              />
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
+                            Crear Alimento
+                            </Text>
+                        </View>
+                    )
+                })}
+            />
 
 
         </Tab.Navigator>
