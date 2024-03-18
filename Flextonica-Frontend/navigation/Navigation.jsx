@@ -15,6 +15,7 @@ import PrivacidadScreen from '../screens/PrivacidadScreen/PrivacidadScreen';
 import SoporteScreen from '../screens/SoporteScreen/SoporteScreen';
 import MisAlimentosScreen from '../screens/MisAlimentosScreen/MisAlimentosScreen';
 import NotaScreen from '../screens/NotasScreen/NotaScreen';
+import EvolutionScreen from '../screens/EvolutionScreen/EvolutionScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -135,8 +136,8 @@ const TabGroup = () => {
             />
 
         <Tab.Screen 
-                name="Nota" 
-                component={NotaScreen} 
+                name="Progreso" 
+                component={EvolutionScreen} 
                 options={({ navigation }) => ({
                     tabBarIcon: ({ focused, color, size }) => (
                         <Feather 
@@ -148,7 +149,7 @@ const TabGroup = () => {
                     tabBarLabel: ({ focused, color }) => (
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                              Nota
+                              Evolution
                             </Text>
                         </View>
                     )
