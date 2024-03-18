@@ -11,7 +11,6 @@ export const Linea = ({ texto }) => {
   );
 };
 
-
 export const Item = ({texto,total,objetivo,restan, porcentaje}) => {
   return (
     <View style={styles.it}>
@@ -125,6 +124,12 @@ const styles = StyleSheet.create({
   },
   text: {
     color:'#807D7D',
+  },
+  containerG: {
+    width:'100%',
+    display: 'flex',
+    backgroundColor:'#FFFFFF',
+    marginTop:10
   }
 })
 

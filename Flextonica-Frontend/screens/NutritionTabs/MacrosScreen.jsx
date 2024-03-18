@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
-import GraficoPorMacros from '../../components/GraficoPorMacros'
 import React from 'react'
-
+import GraficoTortaMacros from '../../components/GraficoTortaMacros'
 
 export const Linea = ({ texto }) => {
   return (
@@ -12,7 +11,6 @@ export const Linea = ({ texto }) => {
     </View>
   );
 };
-
 
 export const Item = ({texto,total,objetivo,restan}) => {
   return (
@@ -46,6 +44,10 @@ const MacrosScreen = () => {
     <Item texto="Proteinas" total="70" objetivo="50" restan="45" />
     <Item texto="Carbohidratos" total="70" objetivo="50" restan="45" />
     <Item texto="Grasas" total="70" objetivo="50" restan="45" />
+
+    <View style={styles.tortaContenedor}>
+       <GraficoTortaMacros props="sfsdfsdfsdf" />
+    </View>
 
  </View>
   )
@@ -137,6 +139,11 @@ const styles = StyleSheet.create({
   },
   text: {
     color:'#807D7D',
+  },
+  tortaContenedor: {
+    width:'100%',
+    backgroundColor:'#FFFFFF',
+    marginTop:10
   }
 })
 
