@@ -16,6 +16,7 @@ import SoporteScreen from '../screens/SoporteScreen/SoporteScreen';
 import MisAlimentosScreen from '../screens/MisAlimentosScreen/MisAlimentosScreen';
 import NotaScreen from '../screens/NotasScreen/NotaScreen';
 import EvolutionScreen from '../screens/EvolutionScreen/EvolutionScreen';
+import AddSeguimiento from '../screens/EvolutionScreen/AddSeguimiento';
 
 const Tab = createBottomTabNavigator();
 
@@ -136,8 +137,8 @@ const TabGroup = () => {
             />
 
         <Tab.Screen 
-                name="Progreso" 
-                component={EvolutionScreen} 
+                name="Agregar progreso" 
+                component={AddSeguimiento} 
                 options={({ navigation }) => ({
                     tabBarIcon: ({ focused, color, size }) => (
                         <Feather 
@@ -149,7 +150,7 @@ const TabGroup = () => {
                     tabBarLabel: ({ focused, color }) => (
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Text style={{ fontSize: 12, marginBottom:5, color: color, marginTop:-5}}>
-                              Evolution
+                              Add seguimiento
                             </Text>
                         </View>
                     )
