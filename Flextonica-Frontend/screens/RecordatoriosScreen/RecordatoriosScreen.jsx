@@ -35,19 +35,20 @@ const RecordatoriosScreen = () => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#6200EE',
+        backgroundColor: '#0B5CFF',
       },
       headerTintColor: '#fff',
       headerLeft: () => (
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => navigation.navigate('MenuScreen')}
+          onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
         >
           <MaterialIcons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
       ),
     });
   }, [navigation]);
+
 
   return (
     <View style={styles.container}>

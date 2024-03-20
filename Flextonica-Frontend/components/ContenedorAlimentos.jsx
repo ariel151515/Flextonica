@@ -4,6 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import campaign from '../assets/campaign.png'
 import React from 'react'
+
 import Color from '../components/Color.js';
 
 export const Item = () => {
@@ -85,17 +86,26 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent:'space-between',
-        padding: 10,
+        paddingLeft: 10,
+        paddingRight:10,
+        paddingTop:15,
+        paddingBottom:15,
+        backgroundColor:Color.barra_comidas_azul_claro,
+        borderBottomWidth: 1,
+        borderBottomColor:Color.linea,
     },
     item: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent:'space-between',
         alignItems: 'center',
-        padding: 10,
+        paddingLeft: 10,
+        paddingRight:10,
+        paddingTop:15,
+        paddingBottom:15,
         backgroundColor: '#fff',
-        borderBottomWidth: 0.6,
-        borderBottomColor:Color.gris_linea,
+        borderBottomWidth: 1,
+        borderBottomColor:Color.linea,
     },
     icon:{
         marginBottom:0,
@@ -107,7 +117,6 @@ const styles = StyleSheet.create({
     tituloBlanco: {
         gap:0,
         display: 'flex',
-        fontWeight:'bold'
     },
     tituloBlancoDos: {
         gap:0,

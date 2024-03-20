@@ -12,9 +12,7 @@ const DayScreen = () => {
     <Layout>
         <DatepickerComponent />
         <Box titulo="DAY" />
-        
           <ScrollView style={styles.contenedor}>
-            <ContenedorAlimentos titulo="Desayuno" calorias="678 Kcal"/>
             <ContenedorAlimentos titulo="Almuerzo" calorias="548 Kcal"/>
             <ContenedorAgua />
             <ContenedorNota />

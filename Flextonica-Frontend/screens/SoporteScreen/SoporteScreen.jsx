@@ -8,22 +8,23 @@ const SoporteScreen = () => {
 
 const navigation = useNavigation();
 
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerStyle: {
-        backgroundColor: '#0B5CFF',
-      },
-      headerTintColor: '#fff',
-      headerLeft: () => (
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <MaterialIcons name="arrow-back" size={24} color="#fff" style={{marginLeft:10}} />
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation]);
+React.useLayoutEffect(() => {
+  navigation.setOptions({
+    headerStyle: {
+      backgroundColor: '#0B5CFF',
+    },
+    headerTintColor: '#fff',
+    headerLeft: () => (
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
+      >
+        <MaterialIcons name="arrow-back" size={24} color="#fff" />
+      </TouchableOpacity>
+    ),
+  });
+}, [navigation]);
+
 
 
   const [asunto, setAsunto] = useState('');

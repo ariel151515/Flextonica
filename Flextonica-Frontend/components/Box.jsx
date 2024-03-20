@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   textDia: {
     display:'flex',
     alignItems: 'center', // Alineación vertical
-    backgroundColor:Color.azul_box_d_w,
+    backgroundColor:Color.azul_oscuro,
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 14,

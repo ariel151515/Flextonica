@@ -63,22 +63,22 @@ const AjustesScreen = () => {
     const navigation = useNavigation();
 
     React.useLayoutEffect(() => {
-        navigation.setOptions({
-            headerStyle: {
-                backgroundColor: '#0B5CFF',
-            },
-            headerTintColor: '#fff',
-            headerLeft: () => (
-                <TouchableOpacity
-                    style={styles.backButton}
-                    onPress={() => navigation.navigate('MenuScreen')}
-                >
-                    <MaterialIcons name="arrow-back" size={24} color="#fff" />
-                </TouchableOpacity>
-            ),
-        });
-
+      navigation.setOptions({
+        headerStyle: {
+          backgroundColor: '#0B5CFF',
+        },
+        headerTintColor: '#fff',
+        headerLeft: () => (
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
+          >
+            <MaterialIcons name="arrow-back" size={24} color="#fff" />
+          </TouchableOpacity>
+        ),
+      });
     }, [navigation]);
+
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>

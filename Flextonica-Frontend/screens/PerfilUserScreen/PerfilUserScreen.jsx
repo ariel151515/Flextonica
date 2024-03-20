@@ -27,7 +27,7 @@ const PerfilUserScreen = () => {
         headerLeft: () => (
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() => navigation.navigate('MenuScreen')} // Aquí modificamos la función onPress para navegar a MenuScreen
+            onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
           >
             <MaterialIcons name="arrow-back" size={24} color="#fff" />
           </TouchableOpacity>

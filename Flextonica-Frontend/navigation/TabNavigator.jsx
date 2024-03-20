@@ -22,13 +22,16 @@ const TabNavigator = () => {
             tabBarStyle: [{ 
                     display: 'flex', 
                     backgroundColor:'#fff',
-                    height:'7%'
+                    height:'6%',
+                    paddingTop:3,
+                    paddingBottom:3
                 },
                 null
             ]
         }}
     >
-      <Tab.Screen 
+
+    <Tab.Screen 
            name="Day" 
            component={DayScreen} 
            options={{
@@ -86,7 +89,6 @@ const TabNavigator = () => {
             )
         }}
            />
-
 
       <Tab.Screen 
            name="Menu" 

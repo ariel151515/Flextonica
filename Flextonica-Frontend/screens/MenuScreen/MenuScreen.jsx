@@ -68,20 +68,6 @@ export const BoxMenuUser = () => {
 }
 
 
-export const ItemMenu = ({texto,icono}) => {
-  const navigation = useNavigation()
-
-    return (
-      <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
-           <View style={styles.contenedorItemMenu}>
-              <View>{icono}</View>
-              <View><Text style={styles.te}>{texto}</Text></View>
-            </View>
-      </TouchableOpacity>
-    );
-}
-
-
 const MenuScreen = () => {
     const navigation = useNavigation(); // Declaración de navigation
 
@@ -94,15 +80,118 @@ const MenuScreen = () => {
     }, []);
 
   return (
-    <>
-        <TouchableOpacity onPress={() => navigation.navigate('Objetivos')}>
-          <Text>Objetivos</Text>
-        </TouchableOpacity>
+    <ScrollView>
+      <BoxMenuUser />
+      <View style={styles.contenedorItems}>
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Objetivos')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                    <MaterialIcons name="workspace-premium" size={24} color="#F6DB4E" />
+                    <Text>Reactivar Premium</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Objetivos')}>
-          <Text>Objetivos</Text>
-        </TouchableOpacity>
-    </>
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <MaterialCommunityIcons name="face-man-profile" size={24} color="#4D4E4F" />
+                      <Text>Perfil</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Day')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <FontAwesome6 name="calendar-day" size={24} color="#4D4E4F" />
+                      <Text>Diario</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Week')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <FontAwesome5 name="calendar-week" size={24} color="#4D4E4F" />
+                      <Text>Semanal</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Objetivos')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <Entypo name="hair-cross" size={24} color="#4D4E4F" />
+                      <Text>Objetivos</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Nutricion')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <MaterialCommunityIcons name="nutrition" size={24} color="#4D4E4F" />
+                      <Text>Nutricion</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Alimentos')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <MaterialCommunityIcons name="food-takeout-box" size={24} color="#4D4E4F" />
+                      <Text>Alimentos</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Seguimiento')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <MaterialIcons name="analytics" size={24} color="#4D4E4F" />
+                      <Text>Seguimientos</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Recordatorios')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <Ionicons name="notifications" size={24} color="#4D4E4F" />
+                      <Text>Recordatorios</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Ajustes')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <Ionicons name="settings" size={24} color="#4D4E4F" />
+                      <Text>Ajustes</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Soporte')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <FontAwesome name="support" size={24} color="#4D4E4F" />
+                      <Text>Soporte</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Privacidad')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                      <MaterialIcons name="security" size={24} color="#4D4E4F" />
+                      <Text>Centro de privacidad</Text>
+                      </View>
+                </TouchableOpacity>
+              </View>
+      </View>
+    </ScrollView>
   )
 }
 
@@ -114,6 +203,7 @@ const styles = StyleSheet.create({
         paddingRight:0,
         paddingTop:25,
         paddingBottom:10,
+        marginTop:20,
         backgroundColor: '#6200EE',
         
         //borderBottomWidth: 1,
@@ -150,7 +240,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
-    contenedorItemMenu: {
+    contenedorItem: {
         display: 'flex',
         flexDirection: 'row',
         width: '100%',
@@ -163,6 +253,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     contenedorItems:{
+        flex: 1,
         display: 'flex',
         padding:10,
         backgroundColor: '#fff',
