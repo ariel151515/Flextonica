@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     paddingTop:10,
     paddingBottom:10,
     paddingLeft:10,
-    paddingRight:10
+    paddingRight:10,
     //flexGrow: 1, // Esto hará que el contenedor tome el 100% del ancho o largo disponible
     //borderWidth: 1, // Añade un borde de 1px
     //borderColor: 'black', // Color del borde
