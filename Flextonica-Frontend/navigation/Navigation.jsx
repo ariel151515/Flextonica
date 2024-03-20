@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import { Feather, Ionicons, MaterialCommunityIcons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
+
 import DayScreen from '../screens/DayScreen/DayScreen';
 import WeekScreen from '../screens/WeekScreen/WeekScreen';
 import MenuScreen from '../screens/MenuScreen/MenuScreen';
@@ -19,6 +22,7 @@ import EvolutionScreen from '../screens/EvolutionScreen/EvolutionScreen';
 import AddSeguimiento from '../screens/EvolutionScreen/AddSeguimiento';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const TabGroup = () => {
     return (

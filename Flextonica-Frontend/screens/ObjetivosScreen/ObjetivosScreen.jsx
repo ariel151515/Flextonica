@@ -74,7 +74,7 @@ const ObjetivosScreen = () => {
       headerLeft: () => (
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => navigation.navigate('MenuScreen')}
+          onPress={() => navigation.navigate('Day')}
         >
           <MaterialIcons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>

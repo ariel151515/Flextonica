@@ -1,13 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Navigation from './navigation/Navigation';
+import React from 'react';
+import AppNavigator from './navigation/AppNavigator';
 
-export default function App() {
-  return (
-    <>
-      <StatusBar style="auto" /> 
-      <Navigation />
-    </>
-  );
+const App = () => {
+  return <AppNavigator />;
 }
 
+export default App; // Solucionado la Navigation

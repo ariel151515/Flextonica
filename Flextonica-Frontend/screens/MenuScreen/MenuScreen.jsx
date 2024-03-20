@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import React,{ useEffect } from 'react';
+
 import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 //Iconos
 import { MaterialIcons } from '@expo/vector-icons';
@@ -10,7 +12,6 @@ import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-
 
 export const BtnCerrarSesion = () => {
 
@@ -68,12 +69,15 @@ export const BoxMenuUser = () => {
 
 
 export const ItemMenu = ({texto,icono}) => {
+  const navigation = useNavigation()
 
     return (
-        <View style={styles.contenedorItemMenu}>
-            <View>{icono}</View>
-            <View><Text style={styles.te}>{texto}</Text></View>
-        </View>
+      <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
+           <View style={styles.contenedorItemMenu}>
+              <View>{icono}</View>
+              <View><Text style={styles.te}>{texto}</Text></View>
+            </View>
+      </TouchableOpacity>
     );
 }
 
@@ -90,32 +94,15 @@ const MenuScreen = () => {
     }, []);
 
   return (
-    <ScrollView style={{ flex: 1 }}>
-        <View>
-        <View style={styles.container}>
-          <BoxMenuUser />
-        </View>
+    <>
+        <TouchableOpacity onPress={() => navigation.navigate('Objetivos')}>
+          <Text>Objetivos</Text>
+        </TouchableOpacity>
 
-        <View style={styles.contenedorItems}>
-          <ItemMenu texto="Reactivar Premium" icono={<MaterialIcons name="workspace-premium" size={24} color="#F6DB4E" />} />
-          <ItemMenu texto="Perfil" icono={<MaterialCommunityIcons name="face-man-profile" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Diario" icono={<FontAwesome6 name="calendar-day" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Semanal" icono={<FontAwesome5 name="calendar-week" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Objetivos" icono={<Entypo name="hair-cross" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Nutricion" icono={<MaterialCommunityIcons name="nutrition" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Alimentos" icono={<MaterialCommunityIcons name="food-takeout-box" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Recetas" icono={<MaterialCommunityIcons name="chef-hat" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Seguimiento" icono={<MaterialIcons name="analytics" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Recordatorios" icono={<Ionicons name="notifications" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Ajustes" icono={<Ionicons name="settings" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Soporte" icono={<FontAwesome name="support" size={24} color="#4D4E4F" />} />
-          <ItemMenu texto="Centro de privacidad" icono={<MaterialIcons name="security" size={24} color="#4D4E4F" />} />
-         
-          <BtnCerrarSesion />
-       
-        </View>
-    </View>
-    </ScrollView>
+        <TouchableOpacity onPress={() => navigation.navigate('Objetivos')}>
+          <Text>Objetivos</Text>
+        </TouchableOpacity>
+    </>
   )
 }
 
