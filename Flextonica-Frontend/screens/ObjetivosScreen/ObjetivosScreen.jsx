@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons';
+import CustomHeader from '../../components/CustomHeader';
 
 export const Item = ({ pesoInicial, 
                        nivelDeActividad,
@@ -63,27 +62,9 @@ export const Item = ({ pesoInicial,
 }
 
 const ObjetivosScreen = () => {
-  const navigation = useNavigation();
-
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerStyle: {
-        backgroundColor: '#6200EE',
-      },
-      headerTintColor: '#fff',
-      headerLeft: () => (
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
-        >
-          <MaterialIcons name="arrow-back" size={24} color="#fff" />
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation]);
-
   return (
     <View style={styles.container}>
+      <CustomHeader />
       <View style={styles.contenedorItem}>
 
         <Item 

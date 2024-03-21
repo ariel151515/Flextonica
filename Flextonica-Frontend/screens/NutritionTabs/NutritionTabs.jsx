@@ -1,37 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { View,  StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import DatepickerComponent from '../../components/DatepickerComponent';
 import MacrosScreen from '../NutritionTabs/MacrosScreen';
 import NutrientesScreen from '../NutritionTabs/NutrientesScreen';
 import FlexibleScreen from '../NutritionTabs/FlexibleScreen';
+import CustomHeader from '../../components/CustomHeader';
 
 const Tab = createMaterialTopTabNavigator();
 
 const NutritionTabs = () => {
-  const navigation = useNavigation();
-
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerStyle: {
-        backgroundColor: '#6200EE',
-      },
-      headerTintColor: '#fff',
-      headerLeft: () => (
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <MaterialIcons name="arrow-back" size={24} color="#fff" />
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation]);
 
   return (
     <View style={{ flex: 1 }}>
+      <CustomHeader />
       <DatepickerComponent />
       <Tab.Navigator
         tabBarOptions={{

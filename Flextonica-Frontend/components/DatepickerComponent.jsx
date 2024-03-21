@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    paddingTop:10,
-    paddingBottom:10,
+    paddingTop:13,
+    paddingBottom:13,
     paddingLeft:10,
     paddingRight:10,
     //flexGrow: 1, // Esto hará que el contenedor tome el 100% del ancho o largo disponible

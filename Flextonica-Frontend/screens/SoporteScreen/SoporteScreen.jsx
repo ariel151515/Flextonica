@@ -19,7 +19,7 @@ React.useLayoutEffect(() => {
         style={styles.backButton}
         onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
       >
-        <MaterialIcons name="arrow-back" size={24} color="#fff" />
+        <MaterialIcons name="arrow-back" size={24} color="#fff" style={{marginLeft:15}}/>
       </TouchableOpacity>
     ),
   });

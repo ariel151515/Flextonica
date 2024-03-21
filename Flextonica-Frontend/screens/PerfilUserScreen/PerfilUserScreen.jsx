@@ -1,8 +1,6 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons';
-
+import { View, Text, StyleSheet } from 'react-native';
+import CustomHeader from '../../components/CustomHeader';
 
 export const Item = ({clave, valor}) => {
     return (
@@ -13,30 +11,10 @@ export const Item = ({clave, valor}) => {
     );
 }
 
-
 const PerfilUserScreen = () => {
-
-    const navigation = useNavigation();
-
-    React.useLayoutEffect(() => {
-      navigation.setOptions({
-        headerStyle: {
-          backgroundColor: '#0B5CFF',
-        },
-        headerTintColor: '#fff',
-        headerLeft: () => (
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
-          >
-            <MaterialIcons name="arrow-back" size={24} color="#fff" />
-          </TouchableOpacity>
-        ),
-      });
-    }, [navigation]);
-
   return (
     <View style={styles.container}>
+       <CustomHeader />
            <View style={styles.contenedorItem}>
                 <Item clave="Nombre" valor="Ariel Gentile" />
                 <Item clave="Email" valor="vipndcfitness@gmail.com"/>

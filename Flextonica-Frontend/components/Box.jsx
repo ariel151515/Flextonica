@@ -9,7 +9,6 @@ export const Box = ({titulo}) => {
   const [value3, setValue3] = useState("GS");
   const [value4, setValue4] = useState("PR");
 
- 
   const [value1C, setValue1C] = useState("2345");
   const [value2C, setValue2C] = useState("334");
   const [value3C, setValue3C] = useState("56");
@@ -148,7 +147,7 @@ export const Box = ({titulo}) => {
 
 
     <View style={styles.containerC}>
-          <View style={styles.itemContainer}>
+        <View style={styles.itemContainer}>
 
         <View style={styles.textDiaC}>
           <Text style={styles.textDiaTC}>Restantes</Text>
@@ -212,7 +211,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center', // Alineación vertical
     width: '75%',
-    paddingRight:15
+    paddingRight:15,
   },
   textBox: {
     marginLeft: 0,
@@ -236,14 +235,15 @@ const styles = StyleSheet.create({
     display:'flex',
     alignItems: 'center', // Alineación vertical
     backgroundColor:Color.azul_oscuro,
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 8,
+    paddingBottom: 8,
     paddingLeft: 14,
     paddingRight: 18,
     borderColor: '#fff',
   },
   containerB:{
     width:'100%',
+    paddingBottom: 10,
     backgroundColor:'#ffff',
     ...Platform.select({
       ios: {
@@ -266,8 +266,8 @@ const styles = StyleSheet.create({
   },
   containerC:{
     backgroundColor:'#ffff',
-    paddingTop:10,
-    paddingBottom:10,
+    paddingTop:4,
+    paddingBottom:4,
   }
 
 });

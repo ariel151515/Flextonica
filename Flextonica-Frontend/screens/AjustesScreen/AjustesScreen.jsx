@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Switch, TouchableWithoutFeedback, Modal, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons';
-import { FontAwesome6 } from '@expo/vector-icons';
+import { View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, ScrollView } from 'react-native';
+import CustomHeader from '../../components/CustomHeader';
 
 export const Item = ({ titulo }) => {
     const [switchValue, setSwitchValue] = useState(false);
@@ -60,28 +58,9 @@ export const Item = ({ titulo }) => {
 
 
 const AjustesScreen = () => {
-    const navigation = useNavigation();
-
-    React.useLayoutEffect(() => {
-      navigation.setOptions({
-        headerStyle: {
-          backgroundColor: '#0B5CFF',
-        },
-        headerTintColor: '#fff',
-        headerLeft: () => (
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
-          >
-            <MaterialIcons name="arrow-back" size={24} color="#fff" />
-          </TouchableOpacity>
-        ),
-      });
-    }, [navigation]);
-
-
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
+           <CustomHeader />
            <View style={{ backgroundColor: '#fff', marginTop:10}}>
               <Text style={{ paddingLeft:10, fontWeight:'bold', color:'#9B9999', fontSize:16, paddingTop:25, paddingBottom:5}}>Mi cuenta</Text>
               <Item titulo="Editar perfil" />

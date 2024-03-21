@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Switch, TouchableWithoutFeedback, Modal, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons';
-import { FontAwesome6 } from '@expo/vector-icons';
+import { View, Text, StyleSheet, TouchableWithoutFeedback, ScrollView } from 'react-native';
+import CustomHeader from '../../components/CustomHeader';
 
 export const Item = ({ titulo, ultimo}) => {
-
     return (
         <TouchableWithoutFeedback onLongPress={null}>
 
@@ -63,28 +60,9 @@ export const Item = ({ titulo, ultimo}) => {
 
 
 const PrivacidadScreen = () => {
-    const navigation = useNavigation();
-
-    React.useLayoutEffect(() => {
-      navigation.setOptions({
-        headerStyle: {
-          backgroundColor: '#0B5CFF',
-        },
-        headerTintColor: '#fff',
-        headerLeft: () => (
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
-          >
-            <MaterialIcons name="arrow-back" size={24} color="#fff" />
-          </TouchableOpacity>
-        ),
-      });
-    }, [navigation]);
-
-
     return (
         <ScrollView showsVerticalScrollIndicator={false} style={{flex:1, backgroundColor:'#fff'}}>
+           <CustomHeader />
            <View style={{ backgroundColor: '#fff' }}>
               <Item titulo="Terminos de servicio" />
               <Item titulo="Politicas de privacidad" />
