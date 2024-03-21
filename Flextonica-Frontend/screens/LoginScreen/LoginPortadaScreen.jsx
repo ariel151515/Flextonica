@@ -33,7 +33,7 @@ const LoginPortadaScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0B5CFF',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
@@ -70,13 +70,13 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   buttonTextR: {
-    color: '#0B5CFF',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 16,
   },
   btnG: {
     width:'90%',
-    borderRadius:5,
+    borderRadius:50,
     alignItems:'center',
     backgroundColor:'#fff',
     paddingBottom:15,
@@ -85,9 +85,9 @@ const styles = StyleSheet.create({
   },
   btnGG: {
     width:'90%',
-    borderRadius:5,
+    borderRadius:50,
     alignItems:'center',
-    backgroundColor:'#0B5CFF',
+    backgroundColor:'#000',
     paddingBottom:13,
     paddingTop:13,
     marginBottom:40,

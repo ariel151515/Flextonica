@@ -58,16 +58,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingVertical: 13,
     paddingHorizontal: 13,
-    borderRadius: 5,
+    borderRadius: 50,
     width: '90%', // Cambiado a 100%
     alignItems: 'center',
     marginBottom: 20,
   },
   buttonI: {
-    backgroundColor: '#0B5CFF',
+    backgroundColor: '#000',
     paddingVertical: 13,
     paddingHorizontal: 13,
-    borderRadius: 5,
+    borderRadius: 50,
     width: '90%', // Cambiado a 100%
     alignItems: 'center',
     marginBottom: 20,

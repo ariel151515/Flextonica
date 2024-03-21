@@ -16,9 +16,8 @@ const LoginOpcionesDeRegistro = () => {
       <View style={styles.buttonContainer}>
         <FormularioLogin />
 
-
-        <Text style={{marginTop:30, marginBottom:30, color:'#0B5CFF'}}>¿Olvidaste la contraseña?</Text>
-        <Text style={{marginTop:0, marginBottom:30}}>O</Text>
+        <Text style={{marginTop:30, marginBottom:30, color:'#000'}}>¿Olvidaste la contraseña?</Text>
+        <Text style={{marginTop:0, marginBottom:20}}>O</Text>
 
         <TouchableOpacity onPress={handlePress} style={[styles.buttonR, styles.shadow]}>
           <View style={styles.btnG}>
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingVertical: 13,
     paddingHorizontal: 13,
-    borderRadius: 5,
+    borderRadius: 50,
     width: '90%', // Cambiado a 100%
     alignItems: 'center',
     marginBottom: 20,
