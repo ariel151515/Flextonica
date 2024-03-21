@@ -2,30 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import CustomHeader from '../../components/CustomHeader';
 
 const SoporteScreen = () => {
-
-const navigation = useNavigation();
-
-React.useLayoutEffect(() => {
-  navigation.setOptions({
-    headerStyle: {
-      backgroundColor: '#0B5CFF',
-    },
-    headerTintColor: '#fff',
-    headerLeft: () => (
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}// Aquí modificamos la función onPress para navegar a MenuScreen
-      >
-        <MaterialIcons name="arrow-back" size={24} color="#fff" style={{marginLeft:15}}/>
-      </TouchableOpacity>
-    ),
-  });
-}, [navigation]);
-
-
 
   const [asunto, setAsunto] = useState('');
   const [mensaje, setMensaje] = useState('');
@@ -37,9 +16,9 @@ React.useLayoutEffect(() => {
     console.log('Mensaje:', mensaje);
   };
 
-
   return (
     <View style={styles.container}>
+      <CustomHeader color="#0B5CFF" texto="#fff" colorIcono="#fff" />
         <Text style={styles.label}>Asunto:</Text>
         <TextInput
             style={styles.input}

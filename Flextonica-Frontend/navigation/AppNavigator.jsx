@@ -26,6 +26,8 @@ import CentroDePrivacidadScreen from '../screens/PrivacidadScreen/PrivacidadScre
 
 // Screen Login
 import LoginPortadaScreen from '../screens/LoginScreen/LoginPortadaScreen';
+import LoginOpcionesDeRegistroScreen from '../screens/LoginScreen/LoginOpcionesDeRegistroScreen';
+import LoginFormularioScreen from '../screens/LoginScreen/LoginFormularioScreen';
 
 
 import TabNavigator from './TabNavigator';
@@ -36,7 +38,9 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginPortadaScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={LoginFormularioScreen} options={{ headerShown: true }}/>
+        <Stack.Screen name="Registrarse" component={LoginOpcionesDeRegistroScreen} />
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Perfil" component={PerfilUserScreen}/>
         <Stack.Screen name="Diario" component={DayScreen}/>

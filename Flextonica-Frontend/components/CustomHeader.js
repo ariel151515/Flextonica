@@ -9,21 +9,21 @@ export const headerStyles = StyleSheet.create({
   },
 });
 
-const CustomHeader = () => {
+const CustomHeader = ({color, texto, colorIcono}) => {
   const navigation = useNavigation();
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#0B5CFF',
+        backgroundColor:color,
       },
-      headerTintColor: '#fff',
+      headerTintColor:texto,
       headerLeft: () => (
         <TouchableOpacity
           style={headerStyles.backButton} // Utilizando los estilos exportados
           onPress={() => navigation.goBack()}
         >
-          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+          <MaterialIcons name="arrow-back" size={24} color={colorIcono} />
         </TouchableOpacity>
       ),
     });
