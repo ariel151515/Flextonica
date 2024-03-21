@@ -83,6 +83,15 @@ const MenuScreen = () => {
     <ScrollView>
       <BoxMenuUser />
       <View style={styles.contenedorItems}>
+
+             <View style={styles.contenedorItem}>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
+                    <Text>Login Portada Screen</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
               <View style={styles.contenedorItem}>
                 <TouchableOpacity onPress={() => navigation.navigate('Objetivos')}>
                   <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>

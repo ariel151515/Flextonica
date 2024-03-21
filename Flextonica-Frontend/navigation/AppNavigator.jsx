@@ -24,6 +24,10 @@ import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
 import RecordatoriosScreen from '../screens/RecordatoriosScreen/RecordatoriosScreen';
 import CentroDePrivacidadScreen from '../screens/PrivacidadScreen/PrivacidadScreen'
 
+// Screen Login
+import LoginPortadaScreen from '../screens/LoginScreen/LoginPortadaScreen';
+
+
 import TabNavigator from './TabNavigator';
 
 const Stack = createStackNavigator();
@@ -32,6 +36,7 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginPortadaScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="Perfil" component={PerfilUserScreen}/>
         <Stack.Screen name="Diario" component={DayScreen}/>
