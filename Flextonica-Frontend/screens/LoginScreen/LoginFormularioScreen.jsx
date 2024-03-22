@@ -14,7 +14,7 @@ const LoginOpcionesDeRegistro = () => {
       <CustomHeader color="#fff" texto="#000" colorIcono="#000" />
 
       <View style={styles.buttonContainer}>
-        <FormularioLogin />
+        <FormularioLogin texto="Iniciar Sesión" />
 
         <Text style={{marginTop:30, marginBottom:30, color:'#000'}}>¿Olvidaste la contraseña?</Text>
         <Text style={{marginTop:0, marginBottom:20}}>O</Text>

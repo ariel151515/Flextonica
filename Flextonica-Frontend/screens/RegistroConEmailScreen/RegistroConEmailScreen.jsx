@@ -1,12 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Image, Platform } from 'react-native';
 import CustomHeader from '../../components/CustomHeader';
-import { useNavigation } from '@react-navigation/native';
+import FormularioLogin from '../../components/FormularioLogin';
 
 const LoginOpcionesDeRegistro = () => {
 
-  const navigation = useNavigation();
-  
   const handlePress = () => {
     Alert.alert('Button Pressed!');
   };
@@ -15,30 +13,8 @@ const LoginOpcionesDeRegistro = () => {
     <View style={styles.container}>
       <CustomHeader color="#fff" texto="#000" colorIcono="#000" />
       <View style={styles.buttonContainer}>
-
-        <Text style={{fontSize:24, textAlign:'center', paddingBottom:30}}>Elige cómo crear tu cuenta de Flextonica.</Text>
-
-        <TouchableOpacity  style={[styles.buttonI, styles.shadow]} onPress={() => navigation.navigate('Registro')}>
-          <Text style={styles.buttonTextI}>Registrarse con email</Text>
-        </TouchableOpacity>
-
-        <Text style={{marginTop:10, marginBottom:25}}>O</Text>
-
-        <TouchableOpacity onPress={handlePress} style={[styles.buttonR, styles.shadow]}>
-          <View style={styles.btnG}>
-            <Image source={require('../../assets/google-icono.png')} style={styles.image} />
-            <Text style={styles.buttonTextR}>Continuar con Google</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={handlePress} style={[styles.buttonR, styles.shadow]}>
-          <View style={styles.btnG}>
-            <Image source={require('../../assets/facebook-icono.png')} style={styles.image} />
-            <Text style={styles.buttonTextR}>Continuar con Facebook</Text>
-          </View>
-        </TouchableOpacity>
-        
-        <Text style={{color:'#9D9B9B', fontSize:13, paddingBottom:30}}>Nunca publicaremos nada sin tu permiso.</Text>
+      <FormularioLogin texto="Registrarse" />
+      <Text style={{marginTop:30, marginBottom:30, color:'#000'}}>¿Olvidaste la contraseña?</Text>
       </View>
     </View>
   );
@@ -48,13 +24,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
   },
   buttonContainer: {
-    position: 'absolute',
-    bottom: 140, // Puedes ajustar este valor según tu diseño
-    width: '90%',
+    width: '100%',
     alignItems: 'center',
   },
   buttonR: {
@@ -67,11 +39,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonI: {
-    backgroundColor: '#000',
+    backgroundColor: '#0B5CFF',
     paddingVertical: 13,
     paddingHorizontal: 13,
     borderRadius: 50,
-    width: '90%', // Cambiado a 100%
+
     alignItems: 'center',
     marginBottom: 20,
   },
