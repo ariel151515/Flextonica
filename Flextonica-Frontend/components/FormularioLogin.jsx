@@ -1,13 +1,35 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
-const FormularioLogin = ({texto}) => {
+// Firebase
+import app from '../firebase-config';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'; // Correct import path
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Get the authentication instance
+const auth = getAuth(app);
+
+const FormularioLogin = ({ texto }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
+
+  const navigation = useNavigation(); // Obtener la navegación aquí
+
+  const logueo = async () => {
+    try {
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      Alert.alert('Iniciando sesión', 'Accediendo');
+      navigation.navigate('Diario');
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -30,7 +52,7 @@ const FormularioLogin = ({texto}) => {
   };
 
   const handleLogin = () => {
-    // Aquí puedes agregar la lógica para iniciar sesión utilizando el email y la contraseña ingresados
+    logueo();
     console.log('Email:', email);
     console.log('Contraseña:', password);
   };
