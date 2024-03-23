@@ -37,16 +37,13 @@ const AppNavigator = ({PorveedorContextoUser}) => {
   // Utiliza useContext para acceder al contexto
   const { isAuthenticated } = useContext(ContextoUser); // Asegúrate de usar correctamente el contexto
 
+ //initialRouteName={isAuthenticated ? 'Tabs' : 'Login portada'}
   return (
     <PorveedorContextoUser>
-        <NavigationContainer>
+        <NavigationContainer> 
           <Stack.Navigator initialRouteName={isAuthenticated ? 'Tabs' : 'Login portada'}>
-            <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false}} />
-            <Stack.Screen name="Perfil" component={isAuthenticated ? PerfilUserScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Diario" component={isAuthenticated ?  DayScreen : LoginPortadaScreen} options={{ headerShown: false }}/>
-            <Stack.Screen name="Semanal" component={isAuthenticated ?  WeekScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Tabs" component={isAuthenticated ? TabNavigator : LoginPortadaScreen} options={{ headerShown: false}} />
             <Stack.Screen name="Objetivos" component={isAuthenticated ?  ObjetivosScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Nutricion" component={isAuthenticated ? NutritionTabs : LoginPortadaScreen}/>
             <Stack.Screen name="Alimentos" component={isAuthenticated ? MisAlimentosScreen : LoginPortadaScreen}/>
             <Stack.Screen name="Seguimiento" component={isAuthenticated ? EvolutionScreen : LoginPortadaScreen}/>
             <Stack.Screen name="Recordatorios" component={isAuthenticated ? RecordatoriosScreen : LoginPortadaScreen}/>

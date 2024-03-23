@@ -1,6 +1,10 @@
-import React,{ useEffect, useState } from 'react';
+import React,{ useEffect, useState, useContext } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+// contexto login
+import { ContextoUser } from './../../context/contextoUser'; // Import the context
+
 
 // Firebase
 import app from '../../firebase-config';
@@ -20,33 +24,23 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
 
-const handleLogout = (navigation) => {
-  auth.signOut()
-      .then(() => {
-        console.log('Sesión cerrada exitosamente');
-        navigation.navigate('Login'); // Redirige al usuario a la página de inicio de sesión
-      })
-      .catch(error => {
-        console.log('Error al cerrar sesión:', error.message);
-      });
-};
-
-
 export const BtnCerrarSesion = () => {
-
+  
   const navigation = useNavigation(); // Declaración de navigation
+  const { isAuthenticated, setIsAuthenticated } = useContext(ContextoUser); // Asegúrate de usar correctamente el contexto
 
-  const handleLogout = () => {
-      auth.signOut()
-          .then(() => {
-              console.log('Sesión cerrada exitosamente');
-              navigation.navigate('Login portada'); // Redirige al usuario a la página de inicio de sesión
-          })
-          .catch(error => {
-              console.log('Error al cerrar sesión:', error.message);
-          });
+  const handleLogout = async () => {
+    try {
+      setIsAuthenticated(false);
+      await auth.signOut();
+      console.log('Sesión cerrada exitosamente');
+      console.log(isAuthenticated, 'Si');
+      // navigation.navigate('Login portada'); // Redirige al usuario a la página de inicio de sesión
+    } catch (error) {
+      console.log('Error al cerrar sesión:', error.message);
+    }
   };
-
+  
 
     const styles = StyleSheet.create({
         button: {

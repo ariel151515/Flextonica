@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, ActivityIndicator, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+
+// contexto login
+import { ContextoUser } from '../context/contextoUser'; // Import the context
 
 // Firebase
 import app from '../firebase-config';
@@ -21,12 +24,17 @@ const FormularioLogin = ({ texto }) => {
 
   const navigation = useNavigation();
 
+  const { isAuthenticated, setIsAuthenticated} = useContext(ContextoUser); // Asegúrate de usar correctamente el contexto
+
+  console.log(isAuthenticated); // Coloca el console.log aquí
+
   const logueo = async () => {
-    setLoading(true);
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       console.log('Inicio de sesión exitoso:', user);
-      navigation.navigate('Diario');
+      setIsAuthenticated(true)
+      console.log(isAuthenticated)
+      // navigation.navigate('Day');
     } catch (error) {
       console.log('Error durante el inicio de sesión:', error);
       Alert.alert('Error', error.message);
@@ -35,7 +43,6 @@ const FormularioLogin = ({ texto }) => {
     }
   };
 
-  
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };

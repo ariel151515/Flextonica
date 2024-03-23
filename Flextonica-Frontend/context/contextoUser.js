@@ -3,10 +3,10 @@ import React, {useState} from "react";
 const ContextoUser = React.createContext();
 
 const PorveedorContextoUser = ({children}) => {
-   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
+   const [isAuthenticated, setIsAuthenticated] = useState(true);
    
     return (
-      <ContextoUser.Provider value={{isAuthenticated}}>
+      <ContextoUser.Provider value={{isAuthenticated, setIsAuthenticated}}>
         {children}
       </ContextoUser.Provider>
     )
