@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     borderWidth:0,
   },
   textDiaT:{
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
     textAlign: 'center',
     fontWeight:'bold',

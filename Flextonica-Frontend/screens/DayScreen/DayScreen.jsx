@@ -17,7 +17,6 @@ const DayScreen = () => {
             <ContenedorAgua />
             <ContenedorNota />
           </ScrollView>
-    
     </Layout>
   );
 }

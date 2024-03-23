@@ -1,6 +1,4 @@
-// AppNavigator.js
 import React from 'react';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -38,13 +36,9 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Registro" component={RegistroConEmailScreen} options={{ headerShown: true }} />
-        <Stack.Screen name="Login" component={LoginFormularioScreen} options={{ headerShown: true }}/>
-        <Stack.Screen name="Registrarse" component={LoginOpcionesDeRegistroScreen} />
-        <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false}} />
         <Stack.Screen name="Perfil" component={PerfilUserScreen}/>
-        <Stack.Screen name="Diario" component={DayScreen}/>
+        <Stack.Screen name="Diario" component={DayScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="Semanal" component={WeekScreen}/>
         <Stack.Screen name="Objetivos" component={ObjetivosScreen}/>
         <Stack.Screen name="Nutricion" component={NutritionTabs}/>
@@ -54,6 +48,10 @@ const AppNavigator = () => {
         <Stack.Screen name="Ajustes" component={AjustesScreen}/>
         <Stack.Screen name="Soporte" component={SoporteScreen}/>
         <Stack.Screen name="Privacidad" component={CentroDePrivacidadScreen}/>
+        <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Registro" component={RegistroConEmailScreen} options={{ headerShown: true }} />
+        <Stack.Screen name="Login" component={LoginFormularioScreen} options={{ headerShown: true }}/>
+        <Stack.Screen name="Registrarse" component={LoginOpcionesDeRegistroScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

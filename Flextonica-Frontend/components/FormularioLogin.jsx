@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, ActivityIndicator, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 // Firebase
 import app from '../firebase-config';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'; // Correct import path
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Get the authentication instance
@@ -17,17 +17,21 @@ const FormularioLogin = ({ texto }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const navigation = useNavigation(); // Obtener la navegación aquí
+  const navigation = useNavigation();
 
   const logueo = async () => {
+    setLoading(true);
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
-      Alert.alert('Iniciando sesión', 'Accediendo');
+      console.log('Inicio de sesión exitoso:', user);
       navigation.navigate('Diario');
-      console.log(user);
     } catch (error) {
-      console.log(error);
+      console.log('Error durante el inicio de sesión:', error);
+      Alert.alert('Error', error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -90,9 +94,13 @@ const FormularioLogin = ({ texto }) => {
           />
         </TouchableOpacity>
       </View>
-      
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>{texto}</Text>
+
+      <TouchableOpacity style={styles.button} onPress={handleLogin} disabled={loading}>
+        {loading ? (
+          <ActivityIndicator size="small" color="#FFF" />
+        ) : (
+          <Text style={styles.buttonText}>{texto}</Text>
+        )}
       </TouchableOpacity>
     </View>
   );
@@ -117,7 +125,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   inputFocused: {
-    borderBottomColor: 'blue', // Cambia el color del borde cuando el input está enfocado
+    borderBottomColor: 'blue',
   },
   label: {
     position: 'absolute',
@@ -127,9 +135,9 @@ const styles = StyleSheet.create({
     color: '#A6A4A4',
   },
   labelFocused: {
-    top: -10, // Mueve el label hacia arriba cuando el input está enfocado o tiene texto
+    top: -10,
     fontSize: 12,
-    color: 'blue', // Cambia el color del texto del label cuando el input está enfocado o tiene texto
+    color: 'blue',
   },
   eyeIcon: {
     position: 'absolute',
