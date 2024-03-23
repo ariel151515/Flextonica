@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { ContextoUser } from '../context/contextoUser'; // Import the context
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -29,31 +31,36 @@ import LoginFormularioScreen from '../screens/LoginScreen/LoginFormularioScreen'
 import RegistroConEmailScreen from '../screens/RegistroConEmailScreen/RegistroConEmailScreen';
 
 import TabNavigator from './TabNavigator';
-
 const Stack = createStackNavigator();
 
-const AppNavigator = () => {
+const AppNavigator = ({PorveedorContextoUser}) => {
+  // Utiliza useContext para acceder al contexto
+  const { isAuthenticated } = useContext(ContextoUser); // Asegúrate de usar correctamente el contexto
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false}} />
-        <Stack.Screen name="Perfil" component={PerfilUserScreen}/>
-        <Stack.Screen name="Diario" component={DayScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="Semanal" component={WeekScreen}/>
-        <Stack.Screen name="Objetivos" component={ObjetivosScreen}/>
-        <Stack.Screen name="Nutricion" component={NutritionTabs}/>
-        <Stack.Screen name="Alimentos" component={MisAlimentosScreen}/>
-        <Stack.Screen name="Seguimiento" component={EvolutionScreen}/>
-        <Stack.Screen name="Recordatorios" component={RecordatoriosScreen}/>
-        <Stack.Screen name="Ajustes" component={AjustesScreen}/>
-        <Stack.Screen name="Soporte" component={SoporteScreen}/>
-        <Stack.Screen name="Privacidad" component={CentroDePrivacidadScreen}/>
-        <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Registro" component={RegistroConEmailScreen} options={{ headerShown: true }} />
-        <Stack.Screen name="Login" component={LoginFormularioScreen} options={{ headerShown: true }}/>
-        <Stack.Screen name="Registrarse" component={LoginOpcionesDeRegistroScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <PorveedorContextoUser>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName={isAuthenticated ? 'Tabs' : 'Login portada'}>
+            <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false}} />
+            <Stack.Screen name="Perfil" component={isAuthenticated ? PerfilUserScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Diario" component={isAuthenticated ?  DayScreen : LoginPortadaScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="Semanal" component={isAuthenticated ?  WeekScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Objetivos" component={isAuthenticated ?  ObjetivosScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Nutricion" component={isAuthenticated ? NutritionTabs : LoginPortadaScreen}/>
+            <Stack.Screen name="Alimentos" component={isAuthenticated ? MisAlimentosScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Seguimiento" component={isAuthenticated ? EvolutionScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Recordatorios" component={isAuthenticated ? RecordatoriosScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Ajustes" component={isAuthenticated ? AjustesScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Soporte" component={isAuthenticated ? SoporteScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Privacidad" component={isAuthenticated ? CentroDePrivacidadScreen : LoginPortadaScreen}/>
+            <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="Registro" component={RegistroConEmailScreen} options={{ headerShown: true }} />
+            <Stack.Screen name="Login" component={LoginFormularioScreen} options={{ headerShown: true }}/>
+            <Stack.Screen name="Registrarse" component={LoginOpcionesDeRegistroScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+    </PorveedorContextoUser>
+    
   );
 }
 

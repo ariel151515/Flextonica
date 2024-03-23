@@ -1,8 +1,14 @@
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
-import React,{ useEffect } from 'react';
-
+import React,{ useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
+// Firebase
+import app from '../../firebase-config';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Get the authentication instance
+const auth = getAuth(app);
 
 //Iconos
 import { MaterialIcons } from '@expo/vector-icons';
@@ -13,7 +19,34 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
+
+const handleLogout = (navigation) => {
+  auth.signOut()
+      .then(() => {
+        console.log('Sesión cerrada exitosamente');
+        navigation.navigate('Login'); // Redirige al usuario a la página de inicio de sesión
+      })
+      .catch(error => {
+        console.log('Error al cerrar sesión:', error.message);
+      });
+};
+
+
 export const BtnCerrarSesion = () => {
+
+  const navigation = useNavigation(); // Declaración de navigation
+
+  const handleLogout = () => {
+      auth.signOut()
+          .then(() => {
+              console.log('Sesión cerrada exitosamente');
+              navigation.navigate('Login portada'); // Redirige al usuario a la página de inicio de sesión
+          })
+          .catch(error => {
+              console.log('Error al cerrar sesión:', error.message);
+          });
+  };
+
 
     const styles = StyleSheet.create({
         button: {
@@ -36,13 +69,8 @@ export const BtnCerrarSesion = () => {
         },
       });
 
-
-    const handlePress = () => {
-      // Aquí puedes manejar la lógica para cerrar sesión
-    };
-  
     return (
-      <TouchableOpacity onPress={handlePress}>
+      <TouchableOpacity onPress={() => handleLogout()}>
         <View style={styles.button}>
           <Text style={styles.textBtn}>Cerrar Sesión</Text>
         </View>
@@ -68,16 +96,38 @@ export const BoxMenuUser = () => {
 }
 
 
+
 const MenuScreen = () => {
     const navigation = useNavigation(); // Declaración de navigation
+    const [isLoggedOut, setIsLoggedOut] = useState(false);
 
     useEffect(() => {
-        console.log("Ejecutando useEffect de WeekScreen");
-        navigation.setOptions({
-            headerShown: false, // Oculta la barra superior
-            headerTitle: false // Oculta el título
-        });
-    }, []);
+      console.log("Ejecutando useEffect de WeekScreen");
+      navigation.setOptions({
+          headerShown: false, // Oculta la barra superior
+          headerTitle: false // Oculta el título
+      });
+
+      const unsubscribe = auth.onAuthStateChanged(user => {
+          if (!user) {
+              // El usuario ha cerrado sesión
+              setIsLoggedOut(true);
+          }
+      });
+
+      return unsubscribe;
+  }, []);
+
+  
+  const handleLogout = () => {
+    auth.signOut()
+    .then(() => {
+        console.log('Sesión cerrada exitosamente');
+    })
+    .catch(error => {
+        console.log('Error al cerrar sesión:', error.message);
+    });
+};
 
   return (
     <ScrollView>
@@ -199,10 +249,13 @@ const MenuScreen = () => {
                       </View>
                 </TouchableOpacity>
               </View>
+
+              <BtnCerrarSesion />
       </View>
     </ScrollView>
   )
 }
+
 
 const styles = StyleSheet.create({
     container: {

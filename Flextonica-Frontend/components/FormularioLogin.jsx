@@ -35,6 +35,7 @@ const FormularioLogin = ({ texto }) => {
     }
   };
 
+  
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
