@@ -4,6 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons'; // Asegúrate de importar Ma
 import CustomHeader from '../../components/CustomHeader';
 import { useNavigation } from '@react-navigation/native';
 
+
 export const Item = ({clave, valor}) => {
     return (
         <View style={styles.item}>
@@ -14,7 +15,7 @@ export const Item = ({clave, valor}) => {
 }
 
 const PerfilUserScreen = () => {
-  
+
   const navigation = useNavigation(); // Mueve la declaración de useNavigation aquí
 
   React.useLayoutEffect(() => {
