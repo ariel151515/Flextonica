@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, ScrollView } from 'react-native';
 import CustomHeader from '../../components/CustomHeader';
+import { MaterialIcons } from '@expo/vector-icons'; // Asegúrate de importar MaterialIcons de acuerdo a tu configuración
+import { useNavigation } from '@react-navigation/native';
+
 
 export const Item = ({ titulo }) => {
     const [switchValue, setSwitchValue] = useState(false);
@@ -58,6 +61,24 @@ export const Item = ({ titulo }) => {
 
 
 const AjustesScreen = () => {
+    const navigation = useNavigation(); // Mueve la declaración de useNavigation aquí
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: '#000',
+      },
+      headerTintColor: '#fff',
+      headerLeft: () => (
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()} // Utilizamos navigation.goBack() para regresar a la pantalla anterior
+        >
+          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
            <CustomHeader />

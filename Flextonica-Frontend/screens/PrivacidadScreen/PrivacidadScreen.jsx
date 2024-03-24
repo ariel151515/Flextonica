@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableWithoutFeedback, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableWithoutFeedback, ScrollView, TouchableOpacity } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons'; // Asegúrate de importar MaterialIcons de acuerdo a tu configuración
 import CustomHeader from '../../components/CustomHeader';
+import { useNavigation } from '@react-navigation/native';
 
 export const Item = ({ titulo, ultimo}) => {
     return (
@@ -60,6 +62,26 @@ export const Item = ({ titulo, ultimo}) => {
 
 
 const PrivacidadScreen = () => {
+
+    const navigation = useNavigation(); // Mueve la declaración de useNavigation aquí
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: '#000',
+      },
+      headerTintColor: '#fff',
+      headerLeft: () => (
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()} // Utilizamos navigation.goBack() para regresar a la pantalla anterior
+        >
+          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
+
     return (
         <ScrollView showsVerticalScrollIndicator={false} style={{flex:1, backgroundColor:'#fff'}}>
            <CustomHeader />

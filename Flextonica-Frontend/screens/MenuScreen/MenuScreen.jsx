@@ -38,7 +38,7 @@ export const BtnCerrarSesion = () => {
             width:'92%',
             backgroundColor: '#FFF',
             borderWidth: 2,
-            borderColor: '#0B5CFF',
+            borderColor: '#000',
             paddingVertical: 7,
             paddingHorizontal: 5,
             borderRadius: 5,
@@ -48,7 +48,7 @@ export const BtnCerrarSesion = () => {
             marginLeft:'3.5%'
         },
         textBtn: {
-          color: '#0B5CFF',
+          color: '#000',
           fontSize: 16,
           textAlign: 'center',
         },
@@ -120,14 +120,6 @@ const MenuScreen = () => {
       <BoxMenuUser />
       <View style={styles.contenedorItems}>
 
-             <View style={styles.contenedorItem}>
-                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                  <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
-                    <Text>Login Portada Screen</Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
-
               <View style={styles.contenedorItem}>
                 <TouchableOpacity onPress={() => navigation.navigate('Objetivos')}>
                   <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
@@ -147,7 +139,7 @@ const MenuScreen = () => {
               </View>
 
               <View style={styles.contenedorItem}>
-                <TouchableOpacity onPress={() => navigation.navigate('Day')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Diario')}>
                   <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
                       <FontAwesome6 name="calendar-day" size={24} color="#4D4E4F" />
                       <Text>Diario</Text>
@@ -156,7 +148,7 @@ const MenuScreen = () => {
               </View>
 
               <View style={styles.contenedorItem}>
-                <TouchableOpacity onPress={() => navigation.navigate('Week')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Semanal')}>
                   <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
                       <FontAwesome5 name="calendar-week" size={24} color="#4D4E4F" />
                       <Text>Semanal</Text>
@@ -174,7 +166,7 @@ const MenuScreen = () => {
               </View>
 
               <View style={styles.contenedorItem}>
-                <TouchableOpacity onPress={() => navigation.navigate('Nutricion')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Nutrition')}>
                   <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center'}}>
                       <MaterialCommunityIcons name="nutrition" size={24} color="#4D4E4F" />
                       <Text>Nutricion</Text>
@@ -242,17 +234,16 @@ const MenuScreen = () => {
   )
 }
 
-
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
         width: '100%',
         paddingLeft:10,
         paddingRight:0,
-        paddingTop:25,
-        paddingBottom:10,
+        paddingTop:27,
+        paddingBottom:15,
         marginTop:20,
-        backgroundColor: '#6200EE',
+        backgroundColor: '#000',
         
         //borderBottomWidth: 1,
         //borderBottomColor: '#ccc'

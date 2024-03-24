@@ -1,15 +1,36 @@
 import React from 'react';
-import { View,  StyleSheet } from 'react-native';
+import { View,  StyleSheet, TouchableOpacity } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import DatepickerComponent from '../../components/DatepickerComponent';
 import MacrosScreen from '../NutritionTabs/MacrosScreen';
 import NutrientesScreen from '../NutritionTabs/NutrientesScreen';
 import FlexibleScreen from '../NutritionTabs/FlexibleScreen';
 import CustomHeader from '../../components/CustomHeader';
+import { useNavigation } from '@react-navigation/native';
+import { Feather, Ionicons, MaterialCommunityIcons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 
 const Tab = createMaterialTopTabNavigator();
 
 const NutritionTabs = () => {
+
+  const navigation = useNavigation(); // Mueve la declaración de useNavigation aquí
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: '#000',
+      },
+      headerTintColor: '#fff',
+      headerLeft: () => (
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()} // Utilizamos navigation.goBack() para regresar a la pantalla anterior
+        >
+          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
 
   return (
     <View style={{ flex: 1 }}>
@@ -28,7 +49,7 @@ const NutritionTabs = () => {
           activeTintColor: '#000', // Color del texto de la pestaña activa
           inactiveTintColor: '#ccc', // Color del texto de la pestaña inactiva
           indicatorStyle: {
-            backgroundColor: '#6200EE', // Color del indicador de pestaña activa
+            backgroundColor: '#BDF51C', // Color del indicador de pestaña activa
           },
         }}
       >

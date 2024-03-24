@@ -1,6 +1,6 @@
 // AppNavigator.js
-import React, {useContext} from 'react';
-import { Text } from 'react-native';
+import React, {useContext, StyleSheet} from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather, Ionicons, MaterialCommunityIcons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 
@@ -13,6 +13,7 @@ import WeekScreen from '../screens/WeekScreen/WeekScreen';
 import MenuScreen from '../screens/MenuScreen/MenuScreen';
 import NutritionTabs from '../screens/NutritionTabs/NutritionTabs';
 import LoginPortadaScreen from '../screens/LoginScreen/LoginPortadaScreen';
+import TableroScreen from '../screens/TableroScreen/TableroScreen'
 
 const Tab = createBottomTabNavigator();
 
@@ -36,8 +37,31 @@ const {isAuthenticated} = useContext(ContextoUser); // Asegúrate de usar correc
         }}
     >
 
+<Tab.Screen 
+    name="Tablero" 
+    component={isAuthenticated ? TableroScreen : LoginPortadaScreen} 
+    options={{
+        tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons 
+                name="today-outline" 
+                size={size} 
+                color={color}
+            />
+        ),
+        tabBarLabel: ({ focused, color }) => (
+            <Text style={{ fontSize: 12, marginBottom:0, color: color, marginTop:0 }}>
+                Tablero
+            </Text>
+        ),
+        headerShown: false,
+        headerTitle: false
+    }}
+/>
+
+
+
     <Tab.Screen 
-           name="Day" 
+           name="Diario" 
            component={isAuthenticated ? DayScreen : LoginPortadaScreen} 
            options={{
             tabBarIcon: ({ focused, color, size }) => (
@@ -46,19 +70,17 @@ const {isAuthenticated} = useContext(ContextoUser); // Asegúrate de usar correc
                      size={size} 
                      color={color}
                     />
-            ),
-            tabBarLabel: ({ focused, color }) => (
-                <Text style={{ fontSize: 12, marginBottom:0, color: color, marginTop:0}}>
-                    Day
-                </Text>
-            ),
-            headerShown: false,
-            headerTitle: false
-        }}
+                   ),
+                   tabBarLabel: ({ focused, color }) => (
+                    <Text style={{ fontSize: 12, marginBottom:0, color: color, marginTop:0}}>
+                        Diario
+                    </Text>
+                ),
+                }}
            />
 
       <Tab.Screen 
-           name="Week" 
+           name="Semanal" 
            component={isAuthenticated ? WeekScreen : LoginPortadaScreen} 
            options={{
             tabBarIcon: ({ focused, color, size }) => (
@@ -66,34 +88,16 @@ const {isAuthenticated} = useContext(ContextoUser); // Asegúrate de usar correc
                           name="calendar-week-begin" 
                           size={size} 
                           color={color} />
-            ),
-            tabBarLabel: ({ focused, color }) => (
-                <Text style={{ fontSize: 12, marginBottom:0, color: color, marginTop:0}}>
-                    Week
-                </Text>
-            )
-
-        }}
+                      ),
+                      tabBarLabel: ({ focused, color }) => (
+                        <Text style={{ fontSize: 12, marginBottom:0, color: color, marginTop:0}}>
+                            Semanal
+                        </Text>
+                    ),
+             }}
+                   
            />
 
-      <Tab.Screen 
-           name="Nutrition" 
-           component={isAuthenticated ? NutritionTabs : LoginPortadaScreen} 
-           options={{
-            tabBarIcon: ({ focused, color, size }) => (
-                <FontAwesome5 
-                     name="nutritionix" 
-                     size={size} 
-                     color={color}
-                      />
-            ),
-            tabBarLabel: ({ focused, color }) => (
-                <Text style={{ fontSize: 12, marginBottom:0, color: color, marginTop:0}}>
-                    Nutrition
-                </Text>
-            )
-        }}
-           />
 
       <Tab.Screen 
            name="Menu" 

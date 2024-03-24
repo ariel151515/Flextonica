@@ -11,7 +11,7 @@ export const ItemMenu = ({ peso, cuello, cintura, caderas, foto }) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#0B5CFF',
+        backgroundColor: '#000',
       },
       headerTintColor: '#fff',
       headerLeft: () => (

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import CustomHeader from '../../components/CustomHeader';
+import { useNavigation } from '@react-navigation/native';
+import { MaterialIcons } from '@expo/vector-icons'; // Asegúrate de importar MaterialIcons de acuerdo a tu configuración
+
 
 export const Item = ({ pesoInicial, 
                        nivelDeActividad,
@@ -62,6 +65,31 @@ export const Item = ({ pesoInicial,
 }
 
 const ObjetivosScreen = () => {
+
+  const navigation = useNavigation(); // Mueve la declaración de useNavigation aquí
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: '#000',
+      },
+      headerTintColor: '#fff',
+      headerLeftContainerStyle: {
+        paddingLeft: 10, // Ajusta según sea necesario
+      },
+      headerLeft: () => (
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()} // Utilizamos navigation.goBack() para regresar a la pantalla anterior
+        >
+          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+      ),
+        headerShown: true,
+        headerTitle: true
+    });
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
       <CustomHeader />

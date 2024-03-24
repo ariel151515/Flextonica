@@ -42,6 +42,8 @@ const AppNavigator = () => {
       {/* Envuelve AppNavigator con el proveedor de contexto PorveedorContextoUser */}
       <Stack.Navigator initialRouteName={isAuthenticated ? 'Tabs' : 'Login portada'}>
         <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name="Nutrition" component={isAuthenticated ? NutritionTabs : LoginPortadaScreen} />
+        <Stack.Screen name="Perfil" component={isAuthenticated ? PerfilUserScreen : LoginPortadaScreen} />
         <Stack.Screen name="Objetivos" component={isAuthenticated ? ObjetivosScreen : LoginPortadaScreen} />
         <Stack.Screen name="Alimentos" component={isAuthenticated ? MisAlimentosScreen : LoginPortadaScreen} />
         <Stack.Screen name="Seguimiento" component={isAuthenticated ? EvolutionScreen : LoginPortadaScreen} />

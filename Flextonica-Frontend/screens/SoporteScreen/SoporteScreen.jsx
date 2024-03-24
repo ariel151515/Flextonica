@@ -6,6 +6,25 @@ import CustomHeader from '../../components/CustomHeader';
 
 const SoporteScreen = () => {
 
+  const navigation = useNavigation(); // Mueve la declaración de useNavigation aquí
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: '#000',
+      },
+      headerTintColor: '#fff',
+      headerLeft: () => (
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()} // Utilizamos navigation.goBack() para regresar a la pantalla anterior
+        >
+          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
+
   const [asunto, setAsunto] = useState('');
   const [mensaje, setMensaje] = useState('');
 
@@ -18,7 +37,7 @@ const SoporteScreen = () => {
 
   return (
     <View style={styles.container}>
-      <CustomHeader color="#0B5CFF" texto="#fff" colorIcono="#fff" />
+      <CustomHeader color="#0000" texto="#fff" colorIcono="#fff" />
         <Text style={styles.label}>Asunto:</Text>
         <TextInput
             style={styles.input}
@@ -66,13 +85,13 @@ const styles = StyleSheet.create({
     height: 100,
   },
   button: {
-    backgroundColor: '#0B5CFF',
+    backgroundColor: '#ccc',
     borderRadius: 5,
     padding: 15,
     alignItems: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
     fontWeight: 'bold',
   },

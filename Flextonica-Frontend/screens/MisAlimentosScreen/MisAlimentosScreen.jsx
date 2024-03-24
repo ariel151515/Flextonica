@@ -21,7 +21,7 @@ const Alimentos = () => {
     React.useLayoutEffect(() => {
       navigation.setOptions({
         headerStyle: {
-          backgroundColor: '#0B5CFF',
+          backgroundColor: '#000',
         },
         headerTintColor: '#fff',
         headerLeft: () => (
@@ -50,7 +50,7 @@ const Alimentos = () => {
           activeTintColor: '#000', // Color del texto de la pestaña activa
           inactiveTintColor: '#ccc', // Color del texto de la pestaña inactiva
           indicatorStyle: {
-            backgroundColor: '#6200EE', // Color del indicador de pestaña activa
+            backgroundColor: '#BDF51C', // Color del indicador de pestaña activa
           },
         }}
       >  
