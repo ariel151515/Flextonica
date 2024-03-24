@@ -2,9 +2,6 @@ import React,{ useEffect, useState, useContext } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-// contexto login
-import { ContextoUser } from './../../context/contextoUser'; // Import the context
-
 
 // Firebase
 import app from '../../firebase-config';
@@ -25,18 +22,10 @@ import { FontAwesome } from '@expo/vector-icons';
 
 
 export const BtnCerrarSesion = () => {
-  
-  const navigation = useNavigation(); // Declaración de navigation
-  
-  const { isAuthenticated, setIsAuthenticated } = useContext(ContextoUser); // Asegúrate de usar correctamente el contexto
-
   const handleLogout = async () => {
     try {
       await auth.signOut();
-      setIsAuthenticated(false)
-      //console.log('Sesión cerrada exitosamente');
-      //console.log(isAuthenticated, 'Si');
-      navigation.navigate('Login portada'); // Redirige al usuario a la página de inicio de sesión
+    
     } catch (error) {
       console.log('Error al cerrar sesión:', error.message);
     }

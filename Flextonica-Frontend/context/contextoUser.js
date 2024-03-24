@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useNavigation } from '@react-navigation/native';
 
 const ContextoUser = React.createContext();
 

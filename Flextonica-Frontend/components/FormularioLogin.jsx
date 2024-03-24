@@ -3,9 +3,6 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, Activi
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-// contexto login
-import { ContextoUser } from '../context/contextoUser'; // Import the context
-
 // Firebase
 import app from '../firebase-config';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -24,18 +21,12 @@ const FormularioLogin = ({ texto }) => {
 
   const navigation = useNavigation();
 
-  const { isAuthenticated, setIsAuthenticated} = useContext(ContextoUser); // Asegúrate de usar correctamente el contexto
-
-  console.log(isAuthenticated); // Coloca el console.log aquí
-
-  
   const logueo = async () => {
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       console.log('Inicio de sesión exitoso:', user);
-      setIsAuthenticated(true)
-      //console.log(isAuthenticated)
       navigation.navigate('Tabs');
+
     } catch (error) {
       console.log('Error durante el inicio de sesión:', error);
       Alert.alert('Error', error.message);
