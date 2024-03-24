@@ -22,6 +22,8 @@ const FormularioLogin = ({ texto }) => {
   const navigation = useNavigation();
 
   const logueo = async () => {
+    setLoading(true); // Establecer loading en true al iniciar el inicio de sesión
+    
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       console.log('Inicio de sesión exitoso:', user);
