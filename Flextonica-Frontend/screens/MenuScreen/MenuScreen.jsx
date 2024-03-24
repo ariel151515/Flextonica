@@ -2,7 +2,6 @@ import React,{ useEffect, useState, useContext } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
 // Firebase
 import app from '../../firebase-config';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -22,16 +21,18 @@ import { FontAwesome } from '@expo/vector-icons';
 
 
 export const BtnCerrarSesion = () => {
+  const navigation = useNavigation(); // Declaración de navigation
+  
   const handleLogout = async () => {
     try {
       await auth.signOut();
-    
+      navigation.navigate('Login portada'); // Redirige al usuario a la página de inicio de sesión
+
     } catch (error) {
       console.log('Error al cerrar sesión:', error.message);
     }
   };
   
-
     const styles = StyleSheet.create({
         button: {
             width:'92%',
