@@ -21,18 +21,18 @@ const {isAuthenticated} = useContext(ContextoUser); // Asegúrate de usar correc
 
   return (
     <Tab.Navigator 
-          screenOptions={{
-            tabBarActiveTintColor: '#6200EE',
-            tabBarInactiveTintColor: '#A4A0A0',
-            tabBarStyle: [{ 
-                    display: 'flex', 
-                    backgroundColor:'#fff',
-                    height:'6%',
-                    paddingTop:3,
-                    paddingBottom:3
-                },
-                null
-            ]
+        screenOptions={{
+            tabBarActiveTintColor: '#000',
+            tabBarInactiveTintColor: '#ccc',
+            tabBarStyle: { 
+            display: 'flex', 
+            backgroundColor: '#fff',
+            height: '8%',
+            paddingTop: 9,
+            paddingBottom: 9,
+            borderTopLeftRadius:0,
+            borderTopRightRadius:0,
+            },
         }}
     >
 
