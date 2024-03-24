@@ -28,13 +28,14 @@ const FormularioLogin = ({ texto }) => {
 
   console.log(isAuthenticated); // Coloca el console.log aquí
 
+  
   const logueo = async () => {
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       console.log('Inicio de sesión exitoso:', user);
       setIsAuthenticated(true)
-      console.log(isAuthenticated)
-      // navigation.navigate('Day');
+      //console.log(isAuthenticated)
+      navigation.navigate('Tabs');
     } catch (error) {
       console.log('Error durante el inicio de sesión:', error);
       Alert.alert('Error', error.message);

@@ -27,15 +27,16 @@ import { FontAwesome } from '@expo/vector-icons';
 export const BtnCerrarSesion = () => {
   
   const navigation = useNavigation(); // Declaración de navigation
+  
   const { isAuthenticated, setIsAuthenticated } = useContext(ContextoUser); // Asegúrate de usar correctamente el contexto
 
   const handleLogout = async () => {
     try {
-      setIsAuthenticated(false);
       await auth.signOut();
-      console.log('Sesión cerrada exitosamente');
-      console.log(isAuthenticated, 'Si');
-      // navigation.navigate('Login portada'); // Redirige al usuario a la página de inicio de sesión
+      setIsAuthenticated(false)
+      //console.log('Sesión cerrada exitosamente');
+      //console.log(isAuthenticated, 'Si');
+      navigation.navigate('Login portada'); // Redirige al usuario a la página de inicio de sesión
     } catch (error) {
       console.log('Error al cerrar sesión:', error.message);
     }
@@ -106,6 +107,7 @@ const MenuScreen = () => {
           if (!user) {
               // El usuario ha cerrado sesión
               setIsLoggedOut(true);
+              setIsAuthenticated(false)
           }
       });
 

@@ -1,10 +1,9 @@
-import React, {useContext} from 'react';
-import { ContextoUser } from '../context/contextoUser'; // Import the context
-
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { ContextoUser } from '../context/contextoUser'; // Importa el contexto
 
-// Screen
+// Importa las pantallas
 import DayScreen from './../screens/DayScreen/DayScreen';
 import WeekScreen from './../screens/WeekScreen/WeekScreen';
 import MenuScreen from './../screens/MenuScreen/MenuScreen';
@@ -24,40 +23,38 @@ import PerfilUserScreen from '../screens/PerfilUserScreen/PerfilUserScreen';
 import RecordatoriosScreen from '../screens/RecordatoriosScreen/RecordatoriosScreen';
 import CentroDePrivacidadScreen from '../screens/PrivacidadScreen/PrivacidadScreen'
 
-// Screen Login
+// Pantallas de inicio de sesión
 import LoginPortadaScreen from '../screens/LoginScreen/LoginPortadaScreen';
 import LoginOpcionesDeRegistroScreen from '../screens/LoginScreen/LoginOpcionesDeRegistroScreen';
 import LoginFormularioScreen from '../screens/LoginScreen/LoginFormularioScreen';
 import RegistroConEmailScreen from '../screens/RegistroConEmailScreen/RegistroConEmailScreen';
 
 import TabNavigator from './TabNavigator';
+
 const Stack = createStackNavigator();
 
-const AppNavigator = ({PorveedorContextoUser}) => {
-  // Utiliza useContext para acceder al contexto
+const AppNavigator = () => {
+  // Usa useContext para acceder al contexto
   const { isAuthenticated } = useContext(ContextoUser); // Asegúrate de usar correctamente el contexto
 
- //initialRouteName={isAuthenticated ? 'Tabs' : 'Login portada'}
   return (
-    <PorveedorContextoUser>
-        <NavigationContainer> 
-          <Stack.Navigator initialRouteName={isAuthenticated ? 'Tabs' : 'Login portada'}>
-            <Stack.Screen name="Tabs" component={isAuthenticated ? TabNavigator : LoginPortadaScreen} options={{ headerShown: false}} />
-            <Stack.Screen name="Objetivos" component={isAuthenticated ?  ObjetivosScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Alimentos" component={isAuthenticated ? MisAlimentosScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Seguimiento" component={isAuthenticated ? EvolutionScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Recordatorios" component={isAuthenticated ? RecordatoriosScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Ajustes" component={isAuthenticated ? AjustesScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Soporte" component={isAuthenticated ? SoporteScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Privacidad" component={isAuthenticated ? CentroDePrivacidadScreen : LoginPortadaScreen}/>
-            <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Registro" component={RegistroConEmailScreen} options={{ headerShown: true }} />
-            <Stack.Screen name="Login" component={LoginFormularioScreen} options={{ headerShown: true }}/>
-            <Stack.Screen name="Registrarse" component={LoginOpcionesDeRegistroScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
-    </PorveedorContextoUser>
-    
+    <NavigationContainer>
+      {/* Envuelve AppNavigator con el proveedor de contexto PorveedorContextoUser */}
+      <Stack.Navigator initialRouteName={isAuthenticated ? 'Tabs' : 'Login portada'}>
+        <Stack.Screen name="Tabs" component={TabNavigator} options={{ headerShown: false }} />
+        <Stack.Screen name="Objetivos" component={isAuthenticated ? ObjetivosScreen : LoginPortadaScreen} />
+        <Stack.Screen name="Alimentos" component={isAuthenticated ? MisAlimentosScreen : LoginPortadaScreen} />
+        <Stack.Screen name="Seguimiento" component={isAuthenticated ? EvolutionScreen : LoginPortadaScreen} />
+        <Stack.Screen name="Recordatorios" component={isAuthenticated ? RecordatoriosScreen : LoginPortadaScreen} />
+        <Stack.Screen name="Ajustes" component={isAuthenticated ? AjustesScreen : LoginPortadaScreen} />
+        <Stack.Screen name="Soporte" component={isAuthenticated ? SoporteScreen : LoginPortadaScreen} />
+        <Stack.Screen name="Privacidad" component={isAuthenticated ? CentroDePrivacidadScreen : LoginPortadaScreen} />
+        <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Registro" component={RegistroConEmailScreen} options={{ headerShown: true }} />
+        <Stack.Screen name="Login" component={LoginFormularioScreen} options={{ headerShown: true }} />
+        <Stack.Screen name="Registrarse" component={LoginOpcionesDeRegistroScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
