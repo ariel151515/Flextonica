@@ -16,21 +16,15 @@ const FormularioLogin = ({ texto }) => {
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [nombre, setNombre] = useState('');
-  const [nombreFocused, setNombreFocused] = useState(false); // Nuevo estado para controlar el enfoque del campo de entrada del nombre
 
   const navigation = useNavigation();
 
-  const logueo = async (nombre) => {
+  const logueo = async () => {
     setLoading(true); // Establecer loading en true al iniciar el inicio de sesión
     
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       
-      await updateProfile(auth.currentUser, {
-        displayName: nombre
-      });
-
       console.log('Inicio de sesión exitoso:', user);
       navigation.navigate('Tabs');
     } catch (error) {
@@ -71,26 +65,13 @@ const FormularioLogin = ({ texto }) => {
   };
 
   const handleLogin = () => {
-    logueo(nombre);
-    console.log('Nombre:', nombre);
+    logueo();
     console.log('Email:', email);
     console.log('Contraseña:', password);
   };
 
   return (
     <View style={styles.container}>
-      {/* Campo de entrada para el nombre */}
-      <View style={[styles.inputContainer, nombreFocused && styles.inputFocused]}> 
-        <Text style={[styles.label, nombreFocused || nombre ? styles.labelFocused : null]}>Nombre</Text>
-        <TextInput
-          style={styles.input}
-          placeholder=" "
-          onChangeText={setNombre}
-          value={nombre}
-          onFocus={handleNombreFocus}
-          onBlur={handleNombreBlur}
-        />
-      </View>
 
       <View style={[styles.inputContainer, emailFocused && styles.inputFocused]}>
         <Text style={[styles.label, emailFocused || email ? styles.labelFocused : null]}>Email</Text>
