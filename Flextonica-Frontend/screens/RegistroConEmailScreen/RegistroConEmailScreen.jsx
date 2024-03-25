@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Image, Platform } from 'react-native';
 import CustomHeader from '../../components/CustomHeader';
-import FormularioLogin from '../../components/FormularioLogin';
+import FormularioDeRegistro from '../../components/FormularioDeRegistro';
 
 const LoginOpcionesDeRegistro = () => {
 
@@ -13,7 +13,7 @@ const LoginOpcionesDeRegistro = () => {
     <View style={styles.container}>
       <CustomHeader color="#fff" texto="#000" colorIcono="#000" />
       <View style={styles.buttonContainer}>
-      <FormularioLogin texto="Registrarse" />
+      <FormularioDeRegistro texto="Registrarse" />
       <Text style={{marginTop:30, marginBottom:30, color:'#000'}}>¿Olvidaste la contraseña?</Text>
       </View>
     </View>
