@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; // Asegúrate de importar MaterialIcons de acuerdo a tu configuración
 import CustomHeader from '../../components/CustomHeader';
 import { useNavigation } from '@react-navigation/native';
-
+import { ContextoUser } from '../../context/contextoUser'; // Importa el contexto
 
 export const Item = ({clave, valor}) => {
     return (
@@ -15,6 +15,11 @@ export const Item = ({clave, valor}) => {
 }
 
 const PerfilUserScreen = () => {
+
+// Usa el hook useContext para acceder al contexto
+const { getUserData } = useContext(ContextoUser);
+const userData = getUserData(); // Obtiene los datos del usuario del contexto
+
 
   const navigation = useNavigation(); // Mueve la declaración de useNavigation aquí
 
@@ -39,9 +44,9 @@ const PerfilUserScreen = () => {
     <View style={styles.container}>
        <CustomHeader />
            <View style={styles.contenedorItem}>
-                <Item clave="Nombre" valor="Ariel Gentile" />
-                <Item clave="Email" valor="vipndcfitness@gmail.com"/>
-                <Item clave="Sucripcion" valor="Estandar"/>
+              <Item clave="Nombre" valor={!userData.name ? 'Nombre no especificado' : userData.displayName } />
+              <Item clave="Email" valor={userData.email} />
+              <Item clave="Sucripcion" valor="Estandar"/>
            </View>
     </View>
   )

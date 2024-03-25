@@ -3,11 +3,8 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'rea
 import { useNavigation } from '@react-navigation/native';
 
 // Firebase
-import app from '../../firebase-config';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-// Get the authentication instance
+import app from '../../firebase/firebase-config';
+import { getAuth } from 'firebase/auth';
 const auth = getAuth(app);
 
 //Iconos
@@ -18,7 +15,6 @@ import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-
 
 export const BtnCerrarSesion = () => {
   const navigation = useNavigation(); // Declaración de navigation
@@ -84,24 +80,16 @@ export const BoxMenuUser = () => {
 
 const MenuScreen = () => {
     const navigation = useNavigation(); // Declaración de navigation
-    const [isLoggedOut, setIsLoggedOut] = useState(false);
-
+    
     useEffect(() => {
-      console.log("Ejecutando useEffect de WeekScreen");
       navigation.setOptions({
-          headerShown: false, // Oculta la barra superior
-          headerTitle: false // Oculta el título
+        headerStyle: {
+          backgroundColor: '#000',
+        },
+        headerTintColor: '#fff',
+        headerShown: false,
       });
 
-      const unsubscribe = auth.onAuthStateChanged(user => {
-          if (!user) {
-              // El usuario ha cerrado sesión
-              setIsLoggedOut(true);
-              setIsAuthenticated(false)
-          }
-      });
-
-      return unsubscribe;
   }, []);
 
   

@@ -75,7 +75,7 @@ const ObjetivosScreen = () => {
       },
       headerTintColor: '#fff',
       headerLeftContainerStyle: {
-        paddingLeft: 10, // Ajusta según sea necesario
+        paddingLeft: 0, // Ajusta según sea necesario
       },
       headerLeft: () => (
         <TouchableOpacity

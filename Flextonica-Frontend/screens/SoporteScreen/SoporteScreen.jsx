@@ -19,7 +19,7 @@ const SoporteScreen = () => {
           style={styles.backButton}
           onPress={() => navigation.goBack()} // Utilizamos navigation.goBack() para regresar a la pantalla anterior
         >
-          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+          <MaterialIcons name="arrow-back" size={24} color="#fff" style={{paddingLeft:10}}/>
         </TouchableOpacity>
       ),
     });
