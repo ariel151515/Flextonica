@@ -34,7 +34,7 @@ export const Datos = ({calorias, c, g, p}) => {
     return(
         <View style={styles.itemValores}>
             <View style={styles.itemD}>
-                <View><Text style={{fontWeight:'bold', fontSize:18, color:'#0B5CFF'}}>{calorias}</Text></View>
+                <View><Text style={{fontWeight:'bold', fontSize:18, color:'#000'}}>{calorias}</Text></View>
                 <View><Text style={[styles.valor, { color: '#939292' }]}>Calorias</Text></View>
             </View>
             <View style={styles.itemD}>
@@ -60,24 +60,20 @@ const AddAlimento = () => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#0B5CFF',
+        backgroundColor:'#000',
       },
+      headerTitle: 'Añadir entrada', // Aquí especifica el nuevo título del encabezado
       headerTintColor: '#fff',
       headerLeft: () => (
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => navigation.navigate('MenuScreen')}
+          onPress={() => { navigation.goBack()}}
         >
           <MaterialIcons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
       ),
       headerRight: () => (
-        <TouchableOpacity
-          style={styles.checkButton}
-          onPress={() => {
-            // Aquí puedes colocar la lógica para manejar el evento de presionar el botón de check
-          }}
-        >
+        <TouchableOpacity style={styles.checkButton}>
           <MaterialIcons name="check" size={24} color="#fff" />
         </TouchableOpacity>
       ),
@@ -88,7 +84,7 @@ const AddAlimento = () => {
 
   return (
     <View style={{flex:1, backgroundColor:'#fff'}}>
-      <Item titulo="Galletitas de salvado granix" cantidad="100" recordatorio="22.30" textoCantidad=""/>
+      <Item titulo="Pechuga de pollo (Pechuga de pollo)" cantidad="100" recordatorio="22.30" textoCantidad=""/>
       <Item cantidad="100" textoCantidad="Tamaño de la raciones" />
       <Item recordatorio="22.30" textoRecordatorio="Recordatorio"/>
       <Datos calorias="560" p="100" c="345" g="47"/>
@@ -107,8 +103,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: 15,
-    paddingBottom: 15,
+    paddingTop:20,
+    paddingBottom:20,
     paddingLeft: 10,
     paddingRight: 10,
     borderBottomWidth: 1, // Corrección aquí

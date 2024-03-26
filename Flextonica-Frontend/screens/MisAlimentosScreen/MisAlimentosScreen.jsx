@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
+import { AntDesign } from '@expo/vector-icons';
 
 // Screen
 //import MisAlimentosTabs from './MisAlimentosTabs/MisAlimentosTabs';
@@ -30,6 +30,23 @@ const Alimentos = () => {
             onPress={() => navigation.goBack()} // Utilizamos navigation.goBack() para regresar a la pantalla anterior
           >
             <MaterialIcons name="arrow-back" size={24} color="#fff" />
+          </TouchableOpacity>
+        ),
+        headerRight: () => (
+          <TouchableOpacity
+            style={styles.checkButton}
+            onPress={() => {
+              // Aquí puedes colocar la lógica para manejar el evento de presionar el botón de check
+            }}
+          >
+            <AntDesign 
+                name="plus" 
+                size={24} 
+                color="#fff" 
+                style={{marginRight:15}}
+                onPress={() => navigation.navigate('AddAlimento')}
+                />
+
           </TouchableOpacity>
         ),
       });

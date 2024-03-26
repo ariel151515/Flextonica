@@ -22,7 +22,6 @@ export const Box = ({titulo}) => {
     }
   };
 
-
   return (
     <View style={styles.containerB}>
 

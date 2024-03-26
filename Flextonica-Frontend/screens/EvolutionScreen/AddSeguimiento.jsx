@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
 export const ItemMenu = ({ peso, cuello, cintura, caderas, foto }) => {
-
     const navigation = useNavigation();
 
   React.useLayoutEffect(() => {
@@ -14,10 +13,11 @@ export const ItemMenu = ({ peso, cuello, cintura, caderas, foto }) => {
         backgroundColor: '#000',
       },
       headerTintColor: '#fff',
+      headerTitle: 'Añadir entrada', // Aquí especifica el nuevo título del encabezado
       headerLeft: () => (
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => navigation.navigate('MenuScreen')}
+          onPress={() =>  navigation.goBack()}
         >
           <MaterialIcons name="arrow-back" size={24} color="#fff" style={{marginLeft:0}}/>
         </TouchableOpacity>

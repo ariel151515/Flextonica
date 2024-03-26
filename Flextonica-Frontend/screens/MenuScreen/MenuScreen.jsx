@@ -1,6 +1,7 @@
 import React,{ useEffect, useState, useContext } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { ContextoUser } from '../../context/contextoUser';
 
 // Firebase
 import app from '../../firebase/firebase-config';
@@ -61,6 +62,9 @@ export const BtnCerrarSesion = () => {
   
   
 export const BoxMenuUser = () => {
+const { getUserData } = useContext(ContextoUser);
+const userData = getUserData();
+
     return (
         <View style={styles.container}>
            <View style={styles.containerElementos}>
@@ -68,8 +72,8 @@ export const BoxMenuUser = () => {
                   <Image source={require('../../assets/user.jpg')}  style={styles.backgroundImage}/>
                   </View>
                 <View>
-                    <Text style={styles.textUno}>arielgentile89</Text>
-                    <Text style={styles.text}>vipndcfitness@gmail.com</Text>
+                    <Text style={styles.textUno}>{userData.displayName}</Text>
+                    <Text style={styles.text}>{userData.email}</Text>
                 </View>
            </View>
         </View>

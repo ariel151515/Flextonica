@@ -67,6 +67,17 @@ const EvolutionScreen = () => {
           <MaterialIcons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
       ),
+      headerRight: () => (
+        <TouchableOpacity style={styles.checkButton}>
+          <MaterialIcons 
+                name="check" 
+                size={24} 
+                color="#fff" 
+                style={{marginRight:15}}
+                onPress={() => navigation.navigate('AddSeguimiento')}
+                />
+        </TouchableOpacity>
+      ),
     });
   }, [navigation]);
 

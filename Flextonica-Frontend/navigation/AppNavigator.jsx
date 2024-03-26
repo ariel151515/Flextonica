@@ -50,6 +50,9 @@ const AppNavigator = () => {
         <Stack.Screen name="Ajustes" component={isAuthenticated ? AjustesScreen : LoginPortadaScreen} />
         <Stack.Screen name="Soporte" component={isAuthenticated ? SoporteScreen : LoginPortadaScreen} />
         <Stack.Screen name="Privacidad" component={isAuthenticated ? CentroDePrivacidadScreen : LoginPortadaScreen} />
+        <Stack.Screen name="AddAlimento" component={isAuthenticated ? AddAlimento : LoginPortadaScreen} />
+        <Stack.Screen name="AddSeguimiento" component={isAuthenticated ? AddSeguimiento : LoginPortadaScreen} />
+
         <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
        
         <Stack.Screen name="Registro" component={RegistroConEmailScreen} options={{ headerShown: true }} />

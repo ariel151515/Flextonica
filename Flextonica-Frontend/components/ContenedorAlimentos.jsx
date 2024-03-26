@@ -4,6 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import campaign from '../assets/campaign.png'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 import Color from '../components/Color.js';
 
@@ -38,13 +39,7 @@ export const Item = () => {
 
 
 const ContenedorAlimentos = ({titulo,calorias}) => {
-
-    const handlePress = () => {
-        return{
-
-        }
-    }
-
+ const navigation = useNavigation();
   return (
     <View style={styles.container}>
 
@@ -63,7 +58,7 @@ const ContenedorAlimentos = ({titulo,calorias}) => {
        <Item />
      
        <View style={styles.btn}>
-            <TouchableOpacity onPress={handlePress}>
+            <TouchableOpacity onPress={() => navigation.navigate('Alimentos')}>
                 <View style={styles.botonLetra}>
                      <View><Entypo name="plus" size={24} color="#6200EE" /></View>
                      <View><Text style={styles.textt} >AÑADIR ENTRADA</Text></View>
