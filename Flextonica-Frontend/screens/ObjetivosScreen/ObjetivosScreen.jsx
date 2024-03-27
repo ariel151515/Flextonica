@@ -1,73 +1,54 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import CustomHeader from '../../components/CustomHeader';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Modal, TouchableWithoutFeedback} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons'; // Asegúrate de importar MaterialIcons de acuerdo a tu configuración
 
 
-export const Item = ({ pesoInicial, 
-                       nivelDeActividad,
-                       edad,
-                       tmb,
-                       deficitCalorico,
-                       proteinas,
-                       carbohidratos,
-                       grasas,
-                       margen,
-                       calorias,
-                       gris
-                       }) => {
+export const CustomModal = ({ modalVisible, setModalVisible }) => {
+
+  const styles = StyleSheet.create({
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)' // Fondo oscuro transparente
+    },
+    modalContent: {
+      position: 'absolute',
+      top: '45%', // Centra verticalmente
+      left: '24%', // Desplaza hacia la derecha
+      backgroundColor: '#fff',
+      padding: 20,
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: '#ccc'
+    }
+  });
 
   return (
-    <View style={[styles.item, { backgroundColor: gris ? '#FBF6F6' : '#fff' }]}>
-      <View>
-        <Text style={styles.comida}>
-             {pesoInicial && 'Peso inicial'}
-             {nivelDeActividad && 'Nivel de actividad'}
-             {edad && 'Edad'}
-             <Text style={{color:'#000', fontWeight:'bold'}}>{tmb && 'TMB'}</Text>
-             {deficitCalorico && 'Deficit calorico'}
-             {proteinas && (<><Text>Proteinas</Text><Text style={{color:'#A2A0A0'}}>  100 g </Text></>)}
-             {carbohidratos && (<><Text>Carbohidratos</Text><Text style={{color:'#A2A0A0'}}>  340 g </Text></>)}
-             {grasas && (<><Text>Grasas</Text><Text style={{color:'#A2A0A0'}}>  20 g </Text></>)}
-             {margen && 'Margen'}
-             <Text style={{fontWeight:'bold'}}>{calorias && 'Calorias a consumir'}</Text>
-        </Text>
+    <Modal
+      animationType="fade"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={() => setModalVisible(false)}
+    >
+      <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+            <View style={styles.modalOverlay} />
+      </TouchableWithoutFeedback>
+      
+      <View style={styles.modalContent}>
+        {/* Contenido del modal */}
+        <Text>Contenido del modal aquí</Text>
       </View>
-      <View style={styles.pp}>
-        <Text style={{color:'#6200EE'}}>
-             {pesoInicial && pesoInicial}
-             {nivelDeActividad && nivelDeActividad}
-             {edad && edad}
-             <Text style={{color:'#000', fontWeight:'bold'}}>{tmb && tmb}</Text>
-             {deficitCalorico && deficitCalorico}
-             <Text style={{color:'#6200EE'}}>{proteinas && proteinas}</Text>
-             <Text style={{color:'#6200EE'}}>{carbohidratos && carbohidratos}</Text>
-             <Text style={{color:'#6200EE'}}>{grasas && grasas }</Text>
-             {margen && margen}
-             <Text style={{fontWeight:'bold', color:'#000'}}>{calorias && calorias}</Text>
-        </Text>
-        <Text style={{color:'#6200EE'}}>
-             {pesoInicial && ' Kg'}
-             {nivelDeActividad && null}
-             {edad && null}
-             <Text style={{color:'#000', fontWeight:'bold'}}>{tmb && ' Kcal'}</Text>
-             {deficitCalorico && ' %'}
-             <Text style={{color:'#6200EE'}}>{proteinas && ' %'}</Text>
-             <Text style={{color:'#6200EE'}}>{carbohidratos && ' %'}</Text>
-             <Text style={{color:'#6200EE'}}>{grasas && ' %'}</Text>
-             {margen && ' %'}
-             <Text style={{fontWeight:'bold', color:'#000'}}>{calorias && ' Kcal'}</Text>
-        </Text>
-      </View>
-    </View>
+    </Modal>
   );
 }
 
+
+
 const ObjetivosScreen = () => {
-
   const navigation = useNavigation(); // Mueve la declaración de useNavigation aquí
-
+  const [ pesoInicial, setPesoInicial] = useState('60');
+  const [modalVisible, setModalVisible] = useState(false);
+  
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
@@ -75,7 +56,7 @@ const ObjetivosScreen = () => {
       },
       headerTintColor: '#fff',
       headerLeftContainerStyle: {
-        paddingLeft: 0, // Ajusta según sea necesario
+        paddingLeft: 10, // Ajusta según sea necesario
       },
       headerLeft: () => (
         <TouchableOpacity
@@ -92,159 +73,70 @@ const ObjetivosScreen = () => {
 
   return (
     <View style={styles.container}>
-      <CustomHeader />
-      <View style={styles.contenedorItem}>
-
-        <Item 
-           pesoInicial="60"
-           nivelDeActividad=""
-           edad=""
-           tmb=""
-           deficitCalorico=""
-           proteinas=""
-           carbohidratos=""
-           grasas=""
-           margen=""
-           calorias=''
-           gris=""
-            />
-
-       <Item 
-           pesoInicial=""
-           nivelDeActividad="Muy activo"
-           edad=""
-           tmb=""
-           deficitCalorico=""
-           proteinas=""
-           carbohidratos=""
-           grasas=""
-           margen=""
-           calorias=''
-           gris=""
-            />    
-
-       <Item 
-           pesoInicial=""
-           nivelDeActividad=""
-           edad="35"
-           tmb=""
-           deficitCalorico=""
-           proteinas=""
-           carbohidratos=""
-           grasas=""
-           margen=""
-           calorias=''
-           gris=""
-            />    
-
-      <Item 
-           pesoInicial=""
-           nivelDeActividad=""
-           edad=""
-           tmb="1678"
-           deficitCalorico=""
-           proteinas=""
-           carbohidratos=""
-           grasas=""
-           margen=""
-           calorias=''
-           gris="gris"
-            />    
-
-       <Item 
-           pesoInicial=""
-           nivelDeActividad=""
-           edad=""
-           tmb=""
-           deficitCalorico="30"
-           proteinas=""
-           carbohidratos=""
-           grasas=""
-           margen=""
-           calorias=''
-           gris=""
-            />     
-
-      <Item 
-           pesoInicial=""
-           nivelDeActividad=""
-           edad=""
-           tmb=""
-           deficitCalorico=""
-           proteinas="30"
-           carbohidratos=""
-           grasas=""
-           margen=""
-           calorias=''
-           gris=""
-            />     
-
-      <Item 
-           pesoInicial=""
-           nivelDeActividad=""
-           edad=""
-           tmb=""
-           deficitCalorico=""
-           proteinas=""
-           carbohidratos="50"
-           grasas=""
-           margen=""
-           calorias=''
-           gris=""
-            />    
-
-      <Item 
-           pesoInicial=""
-           nivelDeActividad=""
-           edad=""
-           tmb=""
-           deficitCalorico=""
-           proteinas=""
-           carbohidratos=""
-           grasas="20"
-           margen=""
-           calorias=''
-           gris=""
-            />   
-
-
-      <Item 
-           pesoInicial=""
-           nivelDeActividad=""
-           edad=""
-           tmb=""
-           deficitCalorico=""
-           proteinas=""
-           carbohidratos=""
-           grasas=""
-           margen=""
-           calorias='1678'
-           gris="gris"
-            />    
-
-      <Item 
-           pesoInicial=""
-           nivelDeActividad=""
-           edad=""
-           tmb=""
-           deficitCalorico=""
-           proteinas=""
-           carbohidratos=""
-           grasas=""
-           margen="5"
-           calorias=''
-           gris=""
-            />   
-
+      <View style={styles.item}>
+         <Text>Peso inicial</Text>
+         <TouchableOpacity onPress={() => setModalVisible(true)}>
+             <Text style={{color:'#6809EE'}}>{pesoInicial}</Text>
+         </TouchableOpacity>
       </View>
-    </View>
+
+      <View style={styles.item}>
+         <Text>Nivel de actividad</Text>
+         <Text style={{color:'#6809EE'}}>Muy activo</Text>
+      </View>
+
+      <View style={styles.item}>
+         <Text>Edad</Text>
+         <Text>35</Text>
+      </View>
+
+      <View style={styles.item}>
+         <Text style={{fontWeight:'bold'}}>TMB</Text>
+         <Text style={{fontWeight:'bold'}}>1345</Text>
+      </View>
+
+      <View style={styles.item}>
+         <Text>Deficit calorico</Text>
+         <Text style={{color:'#6809EE'}}>30 %</Text>
+      </View>
+
+      <View style={styles.item}>
+         <Text>Proteinas</Text>
+         <Text style={{color:'#6809EE'}}>25 %</Text>
+      </View>
+
+      <View style={styles.item}>
+         <Text>Carbohidratos</Text>
+         <Text style={{color:'#6809EE'}}>25 %</Text>
+      </View>
+
+      <View style={styles.item}>
+         <Text>Grasas</Text>
+         <Text style={{color:'#6809EE'}}>25 %</Text>
+      </View>
+
+      <View style={styles.item}>
+         <Text style={{fontWeight:'bold'}}>Calorias a consumir</Text>
+         <Text style={{fontWeight:'bold'}}>1657 Kcal</Text>
+      </View>
+
+      <View style={styles.item}>
+         <Text>Margen</Text>
+         <Text style={{color:'#6809EE'}}>60 kg</Text>
+      </View>
+
+       {/* Agrega el componente modal */}
+       <CustomModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+   </View>
   )
 }
 
+
 // Estilos
 const styles = StyleSheet.create({
-  backButton: {
-    marginLeft: 15,
+  container:{
+    flex: 1,
+    backgroundColor: '#ffff',
   },
   item: {
     flexDirection: 'row',
@@ -254,21 +146,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderBottomWidth: 0.6,
     borderBottomColor: '#EAEBEC',
-  },
-  comida: {
-    color: '#000',
-  },
-  contenedorItem: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#Ffff',
-  },
-  pp: {
-    flexDirection: 'row',
-    alignItems: 'center', // Alinea verticalmente los elementos en esta vista
-  },
+    backgroundColor:'#fff',
+    borderBottomWidth:1,
+    borderBottomColor:'#EAEBEC'
+  }
 });
 
 export default ObjetivosScreen;
