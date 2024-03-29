@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
-
+// app.use(express.json());
 
 // Definir una ruta GET para la raíz "/"
 app.get('/', (req, res) => {
