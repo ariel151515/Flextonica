@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import CustomHeader from '../../components/CustomHeader';
@@ -16,9 +16,47 @@ export const Item = ({ clave, valor }) => {
 
 const PerfilUserScreen = () => {
     const { getUserData } = useContext(ContextoUser);
+    const [premiumStatus, setPremiumStatus] = useState(null);
+    const [data, setUserData] = useState(null);
     const userData = getUserData();
     const navigation = useNavigation();
 
+
+    {/* 
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (!userData || !userData.uid) {
+                    console.error('No hay un UID de usuario válido');
+                    return;
+                }
+    
+                const response = await fetch(`http://localhost:5000/api/datauser/${userData.uid}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Error al cargar los datos del usuario');
+                }
+    
+                const data = await response.json();
+                setUserData(data);
+                console.log(data);
+            } catch (error) {
+                console.error('Error al obtener datos del usuario:', error.message);
+            }
+        };
+    
+        fetchData();
+    }, [userData]);
+    
+*/}
+    
+    
     React.useLayoutEffect(() => {
         navigation.setOptions({
             headerStyle: {

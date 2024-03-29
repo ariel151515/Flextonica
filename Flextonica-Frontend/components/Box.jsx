@@ -9,10 +9,10 @@ export const Box = ({titulo}) => {
   const [value3, setValue3] = useState("GS");
   const [value4, setValue4] = useState("PR");
 
-  const [value1C, setValue1C] = useState("2345");
-  const [value2C, setValue2C] = useState("334");
-  const [value3C, setValue3C] = useState("56");
-  const [value4C, setValue4C] = useState("100");
+  const [value1C, setValue1C] = useState();
+  const [value2C, setValue2C] = useState();
+  const [value3C, setValue3C] = useState();
+  const [value4C, setValue4C] = useState();
 
   const handleInputChange = (text, setValue) => {
     if (text === "0") {
@@ -38,26 +38,26 @@ export const Box = ({titulo}) => {
             value={value1}
             onChangeText={text => handleInputChange(text, setValue1)}
             editable={true} // Primer input editable
-            placeholder="0000"
+            placeholder="0"
             keyboardType="numeric" // Solo números
           />
           <TextInput
             style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
             value={value2}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
             value={value3}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
             value={value4}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
         </View>
         
@@ -74,32 +74,32 @@ export const Box = ({titulo}) => {
           <Text style={styles.textDiaTC}>Objetivo</Text>
         </View>
 
-        <View style={styles.contenedorTextBox}>
+        <View style={styles.contenedorTextBox} >
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000' }]} // Establecer el ancho
             value={value1C}
             onChangeText={text => handleInputChange(text, setValue1)}
             editable={false} // Primer input editable
-            placeholder="0000"
+            placeholder="0"
             keyboardType="numeric" // Solo números
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000' }]} // Establecer el ancho
             value={value2C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000' }]} // Establecer el ancho
             value={value3C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000' }]} // Establecer el ancho
             value={value4C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
         </View>
       </View>
@@ -119,26 +119,26 @@ export const Box = ({titulo}) => {
             value={value1C}
             onChangeText={text => handleInputChange(text, setValue1)}
             editable={false} // Primer input editable
-            placeholder="0000"
+            placeholder="0"
             keyboardType="numeric" // Solo números
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000', fontWeight:'bold' }]} // Establecer el ancho
             value={value2C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000', fontWeight:'bold' }]} // Establecer el ancho
             value={value3C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000', fontWeight:'bold' }]} // Establecer el ancho
             value={value4C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
         </View>
       </View>
@@ -158,26 +158,26 @@ export const Box = ({titulo}) => {
             value={value1C}
             onChangeText={text => handleInputChange(text, setValue1)}
             editable={false} // Primer input editable
-            placeholder="0000"
+            placeholder="0"
             keyboardType="numeric" // Solo números
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000' }]} // Establecer el ancho
             value={value2C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000' }]} // Establecer el ancho
             value={value3C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBoxC, { width: 60, textAlign: 'center', color:'#000' }]} // Establecer el ancho
             value={value4C}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
         </View>
       </View>
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center', // Alineación vertical
     width: '75%',
-    paddingRight:15,
+    paddingRight:15
   },
   textBox: {
     marginLeft: 0,
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
   },
   containerB:{
     width:'100%',
-    paddingBottom: 10,
+    paddingBottom: 7,
     backgroundColor:'#ffff',
     ...Platform.select({
       ios: {

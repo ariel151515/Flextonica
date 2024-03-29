@@ -52,9 +52,7 @@ const AppNavigator = () => {
         <Stack.Screen name="Privacidad" component={isAuthenticated ? CentroDePrivacidadScreen : LoginPortadaScreen} />
         <Stack.Screen name="AddAlimento" component={isAuthenticated ? AddAlimento : LoginPortadaScreen} />
         <Stack.Screen name="AddSeguimiento" component={isAuthenticated ? AddSeguimiento : LoginPortadaScreen} />
-
         <Stack.Screen name="Login portada" component={LoginPortadaScreen} options={{ headerShown: false }} />
-       
         <Stack.Screen name="Registro" component={RegistroConEmailScreen} options={{ headerShown: true }} />
         <Stack.Screen name="Login" component={LoginFormularioScreen} options={{ headerShown: true }} />
         <Stack.Screen name="Registrarse" component={LoginOpcionesDeRegistroScreen} />

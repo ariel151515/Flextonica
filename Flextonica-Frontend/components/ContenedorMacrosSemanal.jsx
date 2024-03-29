@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
 export const Item = ({ dia }) => {
-  const [value1, setValue1] = useState("244");
-  const [value2, setValue2] = useState("34");
-  const [value3, setValue3] = useState("120");
-  const [value4, setValue4] = useState("120");
+  const [value1, setValue1] = useState();
+  const [value2, setValue2] = useState();
+  const [value3, setValue3] = useState();
+  const [value4, setValue4] = useState();
 
   const handleInputChange = (text, setValue) => {
     if (text === "0") {
@@ -28,26 +28,26 @@ export const Item = ({ dia }) => {
             value={value1}
             onChangeText={text => handleInputChange(text, setValue1)}
             editable={true} // Primer input editable
-            placeholder="0000"
+            placeholder="0"
             keyboardType="numeric" // Solo números
           />
           <TextInput
             style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
             value={value2}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
             value={value3}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
           <TextInput
             style={[styles.textBox, { width: 60, textAlign: 'center' }]} // Establecer el ancho
             value={value4}
             editable={false} // Deshabilitar edición
-            placeholder="0000"
+            placeholder="0"
           />
    
         </View>
